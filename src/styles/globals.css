@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @apply text-base sm:text-lg;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+.icon-mask {
+  clip-path: polygon(
+    25% 0,
+    75% 0,
+    100% 30%,
+    100% 70%,
+    80% 100%,
+    20% 100%,
+    0% 70%,
+    0% 30%
+  );
+}
