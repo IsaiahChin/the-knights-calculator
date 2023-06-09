@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-4xl sm:text-5xl font-bold pb-4;
+  }
+
+  img {
+    @apply w-auto h-fit aspect-auto object-contain select-none;
+  }
+}
+
+@layer utilities {
+  .glow {
+    @apply drop-shadow-[0_0_0.85rem_white];
+  }
+
+  .glow-on-hover {
+    @apply hover:drop-shadow-[0_0_0.85rem_white] transition-[filter];
+  }
+}
+
 :root {
   @apply text-base sm:text-lg;
 }
