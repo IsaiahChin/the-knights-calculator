@@ -14,7 +14,10 @@ const robotoSlab = Roboto_Slab({
 export const metadata: Metadata = {
   authors: [{ name: 'Isaiah Chin' }],
   description: 'A Hollow Knight damage analysis tool',
-  title: `The Knight's Calculator`,
+  title: {
+    default: `The Knight's Calculator`,
+    template: `%s | The Knight's Calculator`,
+  },
   icons: [
     { rel: 'apple-touch-icon', url: '/favicon-32x32.png' },
     { rel: 'icon', url: '/favicon-32x32.png' },
@@ -37,7 +40,9 @@ export default function RootLayout({
           className="w-screen h-screen flex flex-col backdrop-blur-[2px] backdrop-brightness-[0.6]"
         >
           <Navigation />
-          <main className="flex flex-1 flex-row m-4">{children}</main>
+          <main className="w-auto h-screen m-8">
+            {children}
+          </main>
           <Footer />
         </div>
       </body>
