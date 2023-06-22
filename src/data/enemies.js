@@ -1019,7 +1019,6 @@ export const enemies = [
     icon: EnemyIcons.broodingMawlek,
     image: EnemyFull.broodingMawlek,
   },
-
   {
     name: 'collector',
     alias: 'the collector',

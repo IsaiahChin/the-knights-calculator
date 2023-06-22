@@ -5,7 +5,7 @@ import wraithsUpgrade from './abyss-shriek.png';
 import dive from './desolate-dive.png';
 import diveUpgrade from './descending-dark.png';
 
-export {
+export default {
   fireball,
   fireballUpgrade,
   wraiths,
