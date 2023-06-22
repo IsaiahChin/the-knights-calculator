@@ -1,9 +1,10 @@
 import '../styles/globals.css';
 import { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
-
 import { Roboto_Slab } from 'next/font/google';
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import LoadoutContainer from '@/components/LoadoutContainer';
 
 const robotoSlab = Roboto_Slab({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   description: 'A Hollow Knight damage analysis tool',
   title: {
     default: `The Knight's Calculator`,
-    template: `%s | The Knight's Calculator`,
+    template: `The Knight's Calculator | %s`,
   },
   icons: [
     { rel: 'apple-touch-icon', url: '/favicon-32x32.png' },
@@ -31,16 +32,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-gray-900 text-white">
+    <html lang="en" className="bg-zinc-950 text-white">
       <body
         className={`${robotoSlab.className} overflow-x-hidden m-0 mx-auto min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
       >
         <div
           id="bg-overlay"
-          className="w-screen h-screen flex flex-col backdrop-blur-[2px] backdrop-brightness-[0.6]"
+          className="w-screen h-auto flex flex-col backdrop-blur-[2px] backdrop-brightness-[0.6]"
         >
-          <Navigation />
-          <main className="w-auto h-screen m-8">
+          <Header />
+          <main className="w-auto h-screen mx-4 my-2 inline-flex gap-2">
+            <LoadoutContainer />
             {children}
           </main>
           <Footer />

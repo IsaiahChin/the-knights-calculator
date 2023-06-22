@@ -6,9 +6,9 @@ import { usePathname } from 'next/navigation';
 
 import kingsBrand from '../assets/ui/kings-brand.png';
 import journal from '../assets/ui/journal-prompt.png';
-import { creditsFleur } from '../assets/ui/fleur/';
+import { creditsFleur } from '../assets/ui/fleur';
 
-export default function Navigation() {
+export default function Header() {
   const pathname = usePathname();
 
   const navLinks = [
@@ -17,7 +17,7 @@ export default function Navigation() {
   ];
 
   return (
-    <>
+    <header>
       <nav className="w-full max-h-[10rem] px-3 p-4 flex items-center justify-between">
         <Link href="/" className="glow-on-hover">
           <Image
@@ -42,6 +42,6 @@ export default function Navigation() {
         </button>
       </nav>
       <Image src={creditsFleur} alt="Nav border" className="m-[0_auto]" />
-    </>
+    </header>
   );
 }
