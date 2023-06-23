@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -41,7 +39,7 @@ export default function Header() {
           />
         </button>
       </nav>
-      <Image src={creditsFleur} alt="Nav border" className="m-[0_auto]" />
+      <Image src={creditsFleur} alt="---" className="m-[0_auto]" />
     </header>
   );
 }

@@ -7,12 +7,15 @@ import selectionBorder from '@/assets/ui/selection-corner.png';
 export default function ImageButton({
   image,
   altText,
+  selected,
 }: {
   image: StaticImageData;
   altText: string;
+  selected: Boolean;
 }) {
-  const [isSelected, setIsSelected] = useState(false);
+  const [isSelected, setIsSelected] = useState(selected);
 
+  // TODO: Only one selected at a time
   function handleSelect() {
     setIsSelected((prevState) => !prevState);
   }
@@ -39,7 +42,8 @@ export default function ImageButton({
           ></div>
         </div>
       )}
-      <div
+      <button
+        type="button"
         className="relative z-[2] max-w-[50px] cursor-pointer"
         onClick={handleSelect}
       >
@@ -48,7 +52,7 @@ export default function ImageButton({
           alt={altText}
           className={`${isSelected && 'glow'}`}
         />
-      </div>
+      </button>
     </div>
   );
 }

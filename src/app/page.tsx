@@ -1,31 +1,59 @@
-import * as NailAssets from '@/assets/ui/loadout/nail';
-import ImageButton from '@/components/ImageButton';
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+
+import StatContainer from '@/components/StatContainer';
+
+import { creditsFleur } from '../assets/ui/fleur';
+
+import knight from '@/data/knight';
+import LoadoutContainer from '@/components/LoadoutContainer';
 
 export default function Home() {
-  const nails = [
-    { name: 'old', image: NailAssets.oldNail },
-    { name: 'sharpened', image: NailAssets.sharpenedNail },
-    { name: 'channelled', image: NailAssets.channelledNail },
-    { name: 'coiled', image: NailAssets.coiledNail },
-    { name: 'pure', image: NailAssets.pureNail },
+  const [tabIndex, setTabIndex] = useState(0);
+  const [loadout, setLoadout] = useState(knight);
+
+  const navLinks = [
+    { index: 0, title: 'Inventory', component: <></> },
+    { index: 1, title: 'Enemies', component: <></> },
   ];
 
+  function handleTabChange(index: number) {
+    setTabIndex(index);
+  }
+
   return (
-    <div id="upgrade-container" className="w-3/5 h-full p-4">
-      <h2 className="text-center pb-8">Nail Upgrades</h2>
-      <div id="nail-container" className="flex gap-16 justify-evenly">
-        {nails.map((nail) => {
-          return (
-            <span className="flex flex-col items-center gap-4" key={nail.name}>
-              <h3>
-                {nail.name[0].toUpperCase() +
-                  nail.name.slice(1, nail.name.length)}
-              </h3>
-              <ImageButton image={nail.image} altText={nail.name} />
-            </span>
-          );
-        })}
-      </div>
-    </div>
+    <>
+      <section className="w-2/5 h-full p-4">
+        <StatContainer loadout={loadout} />
+      </section>
+      <section className="w-3/5 h-full p-4">
+        <nav className="w-full max-h-[10rem] px-3 p-4 flex items-center justify-center">
+          <ul className="inline-flex justify-center gap-4 [&_li]:glow-on-hover">
+            {navLinks.map((link) => (
+              <li
+                key={link.index}
+                className={`${tabIndex == link.index && 'glow'}`}
+              >
+                <button
+                  type="button"
+                  onClick={() => handleTabChange(link.index)}
+                >
+                  {link.title}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <Image
+          src={creditsFleur}
+          alt="-----"
+          className="m-[0_auto] max-w-[80%] mb-10"
+        />
+        {tabIndex == 0 && <LoadoutContainer loadout={loadout} />}
+        {tabIndex == 1 && <h2 className="text-center">Enemies</h2>}
+      </section>
+    </>
   );
 }

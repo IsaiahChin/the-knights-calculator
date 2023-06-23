@@ -10,7 +10,7 @@ import theGrimmTroupeBg from './the-grimm-troupe.png';
 import voidBg from './void.png';
 import voidheartBg from './voidheart.png';
 
-export default {
+export {
   classicBg,
   godmasterBg,
   hiddenDreamsBg,

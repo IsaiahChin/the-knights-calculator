@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="flex w-full p-4 justify-center text-sm">
+    <footer className="flex w-fit m-[0_auto] p-4 justify-center text-sm">
       <p>
         Built by Isaiah.{' '}
         <Link
