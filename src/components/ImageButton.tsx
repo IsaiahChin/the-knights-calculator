@@ -8,21 +8,16 @@ export default function ImageButton({
   image,
   altText,
   selected,
+  onClickFunction,
 }: {
   image: StaticImageData;
   altText: string;
   selected: Boolean;
+  onClickFunction: Function;
 }) {
-  const [isSelected, setIsSelected] = useState(selected);
-
-  // TODO: Only one selected at a time
-  function handleSelect() {
-    setIsSelected((prevState) => !prevState);
-  }
-
   return (
     <div className="relative">
-      {isSelected && (
+      {selected && (
         <div className="absolute z-[1] inset-[0px_-20px]">
           <div
             className="selection-corner top-0 left-0"
@@ -45,13 +40,11 @@ export default function ImageButton({
       <button
         type="button"
         className="relative z-[2] max-w-[50px] cursor-pointer"
-        onClick={handleSelect}
+        onClick={() => {
+          onClickFunction(altText);
+        }}
       >
-        <Image
-          src={image}
-          alt={altText}
-          className={`${isSelected && 'glow'}`}
-        />
+        <Image src={image} alt={altText} className={`${selected && 'glow'}`} />
       </button>
     </div>
   );

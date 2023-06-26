@@ -1,5 +1,3 @@
-'use client';
-
 import StatBlock from './StatBlock';
 
 import knight from '@/data/knight';
