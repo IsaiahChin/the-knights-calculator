@@ -15,8 +15,8 @@ export default function Home() {
   const [loadout, setLoadout] = useState(knight);
 
   const navLinks = [
-    { index: 0, title: 'Inventory', component: <></> },
-    { index: 1, title: 'Enemies', component: <></> },
+    { index: 0, title: 'Inventory' },
+    { index: 1, title: 'Enemies' },
   ];
 
   function handleTabChange(index: number) {
@@ -25,11 +25,11 @@ export default function Home() {
 
   return (
     <>
-      <section className="w-2/5 h-full p-4">
+      <section className="w-2/5 h-auto p-4">
         <StatContainer loadout={loadout} />
       </section>
-      <section className="w-3/5 h-full p-4">
-        <nav className="w-full max-h-[10rem] px-3 p-4 flex items-center justify-center">
+      <section className="w-3/5 h-auto p-4">
+        <nav className="w-full px-3 p-4 flex items-center justify-center">
           <ul className="inline-flex justify-center gap-4 [&_li]:glow-on-hover">
             {navLinks.map((link) => (
               <li
@@ -51,8 +51,12 @@ export default function Home() {
           alt="-----"
           className="m-[0_auto] max-w-[80%] mb-10"
         />
-        {tabIndex == 0 && <LoadoutContainer loadout={loadout} />}
-        {tabIndex == 1 && <h2 className="text-center">Enemies</h2>}
+        <span className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
+          <LoadoutContainer loadout={loadout} />
+        </span>
+        <span className={`${tabIndex == 1 ? 'block' : 'hidden'}`}>
+          <h2 className="text-center">Enemies</h2>
+        </span>
       </section>
     </>
   );
