@@ -1,18 +1,24 @@
 'use client';
 
 import { useState } from 'react';
+
 import Image from 'next/image';
-
 import StatContainer from '@/components/StatContainer';
-
-import { creditsFleur } from '../assets/ui/fleur';
+import LoadoutContainer from '@/components/LoadoutContainer';
 
 import knight from '@/data/knight';
-import LoadoutContainer from '@/components/LoadoutContainer';
+import { creditsFleur } from '../assets/ui/fleur';
 
 export default function Home() {
   const [tabIndex, setTabIndex] = useState(0);
-  const [loadout, setLoadout] = useState(knight);
+  const [loadout, setLoadout] = useState({
+    maxHealth: knight.health.max,
+    minHealth: knight.health.min,
+    nailDamage: knight.nail.damage[0],
+    nailSwingRate: knight.nail.rate,
+    maxSoul: knight.soul.max,
+    spellCost: knight.soul.cost,
+  });
 
   const navLinks = [
     { index: 0, title: 'Inventory' },
@@ -22,6 +28,18 @@ export default function Home() {
   function handleTabChange(index: number) {
     setTabIndex(index);
   }
+
+  function updateNailDamage(newDamage: number) {
+    setLoadout({
+      ...loadout,
+      nailDamage: newDamage,
+    });
+  }
+
+  // setLoadout({
+  //   ...loadout,
+  //   nail: { ...loadout.nail, rate: 5 },
+  // });
 
   return (
     <>
@@ -52,7 +70,10 @@ export default function Home() {
           className="m-[0_auto] max-w-[80%] mb-10"
         />
         <span className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
-          <LoadoutContainer loadout={loadout} />
+          <LoadoutContainer
+            loadout={loadout}
+            updateNailDamage={updateNailDamage}
+          />
         </span>
         <span className={`${tabIndex == 1 ? 'block' : 'hidden'}`}>
           <h2 className="text-center">Enemies</h2>

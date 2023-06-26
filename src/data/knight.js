@@ -2,7 +2,6 @@ const knight = {
   health: {
     max: 9,
     min: 5,
-    heal: 1,
   },
   nail: {
     rate: 0.41,
@@ -13,11 +12,12 @@ const knight = {
       3: 17,
       4: 21,
     },
+    soulRegen: 11,
   },
   soul: {
     max: 99,
     cost: 33,
-    regen: 11,
+    heal: 1,
   },
 };
 

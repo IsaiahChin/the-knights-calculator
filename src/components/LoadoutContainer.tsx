@@ -5,13 +5,46 @@ import { useState } from 'react';
 import ImageButton from '@/components/ImageButton';
 import * as NailAssets from '@/assets/ui/loadout/nail';
 
-export default function LoadoutContainer({ loadout }: { loadout: any }) {
+import knight from '@/data/knight';
+
+export default function LoadoutContainer({
+  loadout,
+  updateNailDamage,
+}: {
+  loadout: any;
+  updateNailDamage?: (newDamage: number) => void;
+}) {
   const [nails, setNails] = useState([
-    { name: 'old', image: NailAssets.oldNail, selected: true },
-    { name: 'sharpened', image: NailAssets.sharpenedNail, selected: false },
-    { name: 'channelled', image: NailAssets.channelledNail, selected: false },
-    { name: 'coiled', image: NailAssets.coiledNail, selected: false },
-    { name: 'pure', image: NailAssets.pureNail, selected: false },
+    {
+      name: 'old',
+      damage: knight.nail.damage[0],
+      image: NailAssets.oldNail,
+      selected: true,
+    },
+    {
+      name: 'sharpened',
+      damage: knight.nail.damage[1],
+      image: NailAssets.sharpenedNail,
+      selected: false,
+    },
+    {
+      name: 'channelled',
+      damage: knight.nail.damage[2],
+      image: NailAssets.channelledNail,
+      selected: false,
+    },
+    {
+      name: 'coiled',
+      damage: knight.nail.damage[3],
+      image: NailAssets.coiledNail,
+      selected: false,
+    },
+    {
+      name: 'pure',
+      damage: knight.nail.damage[4],
+      image: NailAssets.pureNail,
+      selected: false,
+    },
   ]);
 
   function handleNailSelection(name: String) {
@@ -48,7 +81,9 @@ export default function LoadoutContainer({ loadout }: { loadout: any }) {
                 image={nail.image}
                 altText={nail.name}
                 selected={nail.selected}
+                nailDamage={nail.damage}
                 onClickFunction={handleNailSelection}
+                updateNailDamage={updateNailDamage}
               />
             </span>
           );

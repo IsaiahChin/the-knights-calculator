@@ -1,6 +1,5 @@
 import StatBlock from './StatBlock';
 
-import knight from '@/data/knight';
 import NAILART from '@/constants/nailart';
 
 export default function StatContainer({ loadout }: { loadout: any }) {
@@ -17,17 +16,17 @@ export default function StatContainer({ loadout }: { loadout: any }) {
             <span className="grid grid-cols-2">
               <div className="flex flex-col justify-around">
                 <StatBlock
-                  value={loadout.nail.damage[0]}
+                  value={loadout.nailDamage}
                   valueSize="large"
                   subValue=" dmg"
                 />
                 <StatBlock
-                  value={loadout.nail.rate}
+                  value={loadout.nailSwingRate}
                   valueSize="large"
                   subValue=" s swing speed"
                 />
                 <StatBlock
-                  value={(loadout.nail.damage[0] / loadout.nail.rate).toFixed(
+                  value={(loadout.nailDamage / loadout.nailSwingRate).toFixed(
                     2
                   )}
                   valueSize="large"
@@ -41,7 +40,7 @@ export default function StatContainer({ loadout }: { loadout: any }) {
                       key={index}
                       icon={nailart.icon}
                       iconAlt={nailart.name + ' slash'}
-                      value={knight.nail.damage[0] * nailart.damageMod}
+                      value={loadout.nailDamage * nailart.damageMod}
                       valueSize="medium"
                       subValue={`dmg ${
                         nailart.name == 'cyclone'

@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import selectionBorder from '@/assets/ui/selection-corner.png';
 
@@ -9,11 +8,15 @@ export default function ImageButton({
   altText,
   selected,
   onClickFunction,
+  nailDamage,
+  updateNailDamage,
 }: {
   image: StaticImageData;
   altText: string;
   selected: Boolean;
   onClickFunction: Function;
+  nailDamage?: number;
+  updateNailDamage?: (newDamage: number) => void;
 }) {
   return (
     <div className="relative">
@@ -42,6 +45,9 @@ export default function ImageButton({
         className="relative z-[2] max-w-[50px] cursor-pointer"
         onClick={() => {
           onClickFunction(altText);
+          if (nailDamage != null) {
+            updateNailDamage?.(nailDamage);
+          }
         }}
       >
         <Image src={image} alt={altText} className={`${selected && 'glow'}`} />
