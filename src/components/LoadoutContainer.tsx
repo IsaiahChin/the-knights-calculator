@@ -68,11 +68,11 @@ export default function LoadoutContainer({
 
   return (
     <>
-      <h2 className="text-center pb-8">Nail Upgrades</h2>
+      <h1 className="h-min p-8 text-center">Nail Upgrades</h1>
       <div id="nail-container" className="flex flex-wrap gap-10 justify-evenly">
         {nails.map((nail: any) => {
           return (
-            <span className="flex flex-col items-center gap-4" key={nail.name}>
+            <div className="flex flex-col items-center gap-4" key={nail.name}>
               <h3>
                 {nail.name[0].toUpperCase() +
                   nail.name.slice(1, nail.name.length)}
@@ -85,7 +85,7 @@ export default function LoadoutContainer({
                 onClickFunction={handleNailSelection}
                 updateNailDamage={updateNailDamage}
               />
-            </span>
+            </div>
           );
         })}
       </div>

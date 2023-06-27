@@ -1,39 +1,45 @@
+import Image from 'next/image';
+
 import StatBlock from './StatBlock';
 
 import NAILART from '@/constants/nailart';
+import SPELLS from '@/constants/spells';
 
 export default function StatContainer({ loadout }: { loadout: any }) {
   return (
     <>
-      <h1 className="text-center">The Knight's Calculator</h1>
-      <span className="h-full p-4 grid">
-        <div
-          id="stats"
-          className="h-screen [&>div]:p-4 grid grid-cols-1 grid-rows-3"
-        >
-          <div id="nail">
-            <h1 className="h-min pb-8">Nail</h1>
-            <span className="grid grid-cols-2">
-              <div className="flex flex-col justify-around">
+      <div className="h-full p-4">
+        <div id="stats" className="h-[70vh] flex flex-col [&>div]:p-4">
+          <h1 className="h-min p-4 text-center">Damage</h1>
+          <div
+            id="damage"
+            className="flex flex-row flex-wrap justify-between [&_div]:mt-4 [&>div]:flex [&>div]:flex-col"
+          >
+            <div className="justify-start">
+              <h2>Nail</h2>
+              <section className="min-h-max h-40 flex flex-col justify-between mt-4 gap-2">
                 <StatBlock
                   value={loadout.nailDamage}
                   valueSize="large"
-                  subValue=" dmg"
+                  subValue="dmg"
                 />
                 <StatBlock
                   value={loadout.nailSwingRate}
                   valueSize="large"
-                  subValue=" s swing speed"
+                  subValue="s swing speed"
                 />
                 <StatBlock
                   value={(loadout.nailDamage / loadout.nailSwingRate).toFixed(
                     2
                   )}
                   valueSize="large"
-                  subValue=" dps"
+                  subValue="dps"
                 />
-              </div>
-              <div className="flex flex-col justify-around">
+              </section>
+            </div>
+            <div className="justify-start">
+              <h2>Nail Arts</h2>
+              <section className="min-h-max h-40 flex flex-col justify-between mt-4 gap-2">
                 {NAILART.map((nailart, index) => {
                   return (
                     <StatBlock
@@ -50,17 +56,49 @@ export default function StatContainer({ loadout }: { loadout: any }) {
                     />
                   );
                 })}
-              </div>
-            </span>
+              </section>
+            </div>
+            <div className="jusitfy-start">
+              <h2>Spells</h2>
+              <section className="min-h-max h-40 flex flex-col justify-between mt-4 gap-2">
+                {SPELLS.map((spell, index) => {
+                  if (index % 2 == 0)
+                    return (
+                      <StatBlock
+                        key={index}
+                        icon={spell.icon}
+                        iconAlt={spell.name}
+                        value={spell.damage}
+                        valueSize="medium"
+                        subValue={`dmg`}
+                      />
+                    );
+                })}
+              </section>
+            </div>
           </div>
-          <div id="soul">
-            <h1 className="h-min pb-8">Soul</h1>
-          </div>
-          <div id="other">
-            <h1 className="h-min pb-8">Other</h1>
+          <h1 className="h-min p-4 text-center">Soul</h1>
+          <div id="soul" className="flex flex-row flex-wrap justify-between">
+            <section className="w-full flex flex-row justify-between mt-4">
+              <StatBlock
+                value={loadout.maxSoul}
+                valueSize="large"
+                subValue="max"
+              />
+              <StatBlock
+                value={loadout.spellCost}
+                valueSize="large"
+                subValue="per spell"
+              />
+              <StatBlock
+                value={loadout.soulRegen}
+                valueSize="large"
+                subValue="gain on hit"
+              />
+            </section>
           </div>
         </div>
-      </span>
+      </div>
     </>
   );
 }

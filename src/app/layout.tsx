@@ -38,7 +38,7 @@ export default function RootLayout({
           id="bg-overlay"
           className="w-screen flex flex-col backdrop-blur-[2px] backdrop-brightness-[0.4]"
         >
-          <main className="w-auto h-auto mx-4 my-2 inline-flex gap-2">
+          <main className="w-auto h-screen mx-4 my-2 inline-flex gap-2">
             {children}
           </main>
           <Footer />

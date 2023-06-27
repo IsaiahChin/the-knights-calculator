@@ -13,7 +13,7 @@ const SPELLS = [
   },
   {
     name: 'dive',
-    damage: 39,
+    damage: 35,
     icon: SpellIcons.dive,
   },
   {
@@ -23,7 +23,7 @@ const SPELLS = [
   },
   {
     name: 'wraiths',
-    damage: 30,
+    damage: 39,
     icon: SpellIcons.wraiths,
   },
   {

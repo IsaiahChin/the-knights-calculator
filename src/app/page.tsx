@@ -18,6 +18,7 @@ export default function Home() {
     nailSwingRate: knight.nail.rate,
     maxSoul: knight.soul.max,
     spellCost: knight.soul.cost,
+    soulRegen: knight.nail.soulRegen,
   });
 
   const navLinks = [
@@ -36,14 +37,11 @@ export default function Home() {
     });
   }
 
-  // setLoadout({
-  //   ...loadout,
-  //   nail: { ...loadout.nail, rate: 5 },
-  // });
-
   return (
     <>
       <section className="w-2/5 h-auto p-4">
+        <h1 className="text-center py-3">The Knight's Calculator</h1>
+        <Image src={creditsFleur} alt="-----" className="m-[0_auto]" />
         <StatContainer loadout={loadout} />
       </section>
       <section className="w-3/5 h-auto p-4">
@@ -67,17 +65,17 @@ export default function Home() {
         <Image
           src={creditsFleur}
           alt="-----"
-          className="m-[0_auto] max-w-[80%] mb-10"
+          className="m-[0_auto] max-w-[80%]"
         />
-        <span className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
+        <div className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
           <LoadoutContainer
             loadout={loadout}
             updateNailDamage={updateNailDamage}
           />
-        </span>
-        <span className={`${tabIndex == 1 ? 'block' : 'hidden'}`}>
-          <h2 className="text-center">Enemies</h2>
-        </span>
+        </div>
+        <div className={`${tabIndex == 1 ? 'block' : 'hidden'}`}>
+          <h1 className="h-min p-8 text-center">Enemies</h1>
+        </div>
       </section>
     </>
   );
