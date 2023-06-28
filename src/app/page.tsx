@@ -41,20 +41,20 @@ export default function Home() {
     <>
       <section className="w-2/5 h-auto p-4">
         <h1 className="text-center py-3">The Knight's Calculator</h1>
-        <Image src={creditsFleur} alt="-----" className="m-[0_auto] mt-4" />
+        <Image src={creditsFleur} alt="" className="m-[0_auto] mt-4" />
         <StatContainer loadout={loadout} />
       </section>
       <section className="w-3/5 h-auto p-4">
         <nav className="w-full px-3 p-4 flex items-center justify-center">
-          <ul className="inline-flex justify-center gap-4 [&_li]:glow-on-hover">
+          <ul className="inline-flex justify-center gap-4">
             {navLinks.map((link) => (
-              <li
-                key={link.index}
-                className={`${tabIndex == link.index && 'glow'}`}
-              >
+              <li key={link.index}>
                 <button
                   type="button"
                   onClick={() => handleTabChange(link.index)}
+                  className={`${
+                    tabIndex == link.index && 'underline'
+                  } underline-offset-8 decoration-white hover:underline`}
                 >
                   {link.title}
                 </button>
@@ -64,7 +64,7 @@ export default function Home() {
         </nav>
         <Image
           src={creditsFleur}
-          alt="-----"
+          alt=""
           className="m-[0_auto] max-w-[80%] mt-4"
         />
         <div className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
