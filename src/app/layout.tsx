@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import { Metadata } from 'next';
 import { Roboto_Slab } from 'next/font/google';
 
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const robotoSlab = Roboto_Slab({
@@ -38,6 +39,7 @@ export default function RootLayout({
           id="bg-overlay"
           className="w-screen flex flex-col backdrop-blur-[2px] backdrop-brightness-[0.4]"
         >
+          <Header />
           <main className="w-auto h-screen mx-4 my-2 inline-flex gap-2">
             {children}
           </main>
