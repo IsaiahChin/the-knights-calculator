@@ -54,7 +54,7 @@ export default function Home() {
                   onClick={() => handleTabChange(link.index)}
                   className={`${
                     tabIndex == link.index && 'underline'
-                  } underline-offset-8 decoration-white hover:underline`}
+                  } underline-offset-8 decoration-white decoration-2 hover:underline`}
                 >
                   {link.title}
                 </button>
