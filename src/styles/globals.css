@@ -31,17 +31,13 @@
 
 @layer components {
   .selection-corner {
-    @apply absolute w-20 h-20 bg-[size:30%] bg-no-repeat;
+    @apply absolute w-20 h-20 max-w-[30px];
   }
 }
 
 @layer utilities {
   .glow {
-    @apply drop-shadow-[0_0_0.85rem_white];
-  }
-
-  .glow-on-hover {
-    @apply hover:drop-shadow-[0_0_0.85rem_white] transition-[filter];
+    @apply drop-shadow-[0_0_0.45rem_white];
   }
 }
 
