@@ -21,28 +21,32 @@ export default function ImageButton({
   return (
     <div className="relative">
       {selected && (
-        <div className="absolute z-[1] inset-[0px_-20px]">
-          <div
+        <div className="absolute z-[1] inset-[-35px]">
+          <Image
             className="selection-corner top-0 left-0"
-            style={{ backgroundImage: `url(${selectionBorder.src})` }}
-          ></div>
-          <div
+            src={selectionBorder}
+            alt=""
+          ></Image>
+          <Image
             className="selection-corner top-0 right-0 rotate-90"
-            style={{ backgroundImage: `url(${selectionBorder.src})` }}
-          ></div>
-          <div
-            className="selection-corner bottom-0 left-0 rotate-180"
-            style={{ backgroundImage: `url(${selectionBorder.src})` }}
-          ></div>
-          <div
-            className="selection-corner bottom-0 right-0 -rotate-90"
-            style={{ backgroundImage: `url(${selectionBorder.src})` }}
-          ></div>
+            src={selectionBorder}
+            alt=""
+          ></Image>
+          <Image
+            className="selection-corner bottom-0 right-0 rotate-180"
+            src={selectionBorder}
+            alt=""
+          ></Image>
+          <Image
+            className="selection-corner bottom-0 left-0 -rotate-90"
+            src={selectionBorder}
+            alt=""
+          ></Image>
         </div>
       )}
       <button
         type="button"
-        className="relative z-[2] max-w-[50px] cursor-pointer"
+        className="relative z-[2] max-w-[50px]"
         onClick={() => {
           onClickFunction(altText);
           if (nailDamage != null) {
