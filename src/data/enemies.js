@@ -3,7 +3,7 @@ import * as EnemyFull from '../assets/enemies/index';
 import * as CONTENT from '../constants/content';
 import * as ENEMY from '../constants/enemy';
 
-export const enemies = [
+const enemies = [
   {
     name: 'aluba',
     health: { total: 1 },
@@ -1516,3 +1516,5 @@ export const enemies = [
     image: EnemyFull.zoteTheMighty,
   },
 ];
+
+export default enemies;
