@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import InfoIcon from '@/assets/meta/InfoIcon';
 import CloseIcon from '@/assets/meta/CloseIcon';
+import GithubIcon from '@/assets/meta/GithubIcon';
 import { pauseTopFleur, bottomFleur } from '@/assets/ui/fleur';
 
 export default function Header() {
@@ -43,21 +44,14 @@ export default function Header() {
             <p className="w-max h-32">
               A damage analysis tool for Hollow Knight
             </p>
-            <p className="w-max [&_a]:underline [&_a]:underline-offset-2 text-xs">
-              Built by{' '}
-              <Link href="https://www.isaiahchin.com/" target="_blank">
-                Isaiah
-              </Link>
-              .{' '}
-              <Link href="https://www.hollowknight.com/" target="_blank">
-                Hollow Knight
-              </Link>{' '}
-              by{' '}
-              <Link href="https://www.teamcherry.com.au/" target="_blankF">
-                Team Cherry
-              </Link>
-              .
-            </p>
+            <Link
+              href="https://github.com/IsaiahChin/the-knights-calculator"
+              target="_blank"
+              className="flex gap-2 items-center p-2 border-white border-2 rounded-lg"
+            >
+              <GithubIcon />
+              Source
+            </Link>
             <Image src={bottomFleur} alt="" className="max-w-[250px] mt-4" />
           </div>
         </div>
