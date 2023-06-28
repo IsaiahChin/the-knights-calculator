@@ -2,22 +2,18 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="flex w-fit m-[0_auto] p-4 justify-center text-sm">
-      <p>
-        Built by Isaiah.{' '}
-        <Link
-          href="https://www.hollowknight.com/"
-          className="underline underline-offset-4"
-          target="_blank"
-        >
+    <footer className="flex w-fit m-[0_auto] p-4 justify-center text-xs">
+      <p className="[&_a]:underline [&_a]:underline-offset-2">
+        Built by{' '}
+        <Link href="https://www.isaiahchin.com/" target="_blank">
+          Isaiah
+        </Link>
+        .{' '}
+        <Link href="https://www.hollowknight.com/" target="_blank">
           Hollow Knight
         </Link>{' '}
         by{' '}
-        <Link
-          href="https://www.teamcherry.com.au/"
-          className="underline underline-offset-4"
-          target="_blank"
-        >
+        <Link href="https://www.teamcherry.com.au/" target="_blankF">
           Team Cherry
         </Link>
         .
