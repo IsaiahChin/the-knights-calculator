@@ -41,7 +41,7 @@ export default function Home() {
     <>
       <section className="w-2/5 h-auto p-4">
         <h1 className="text-center py-3">The Knight's Calculator</h1>
-        <Image src={creditsFleur} alt="-----" className="m-[0_auto]" />
+        <Image src={creditsFleur} alt="-----" className="m-[0_auto] mt-4" />
         <StatContainer loadout={loadout} />
       </section>
       <section className="w-3/5 h-auto p-4">
@@ -65,7 +65,7 @@ export default function Home() {
         <Image
           src={creditsFleur}
           alt="-----"
-          className="m-[0_auto] max-w-[80%]"
+          className="m-[0_auto] max-w-[80%] mt-4"
         />
         <div className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
           <LoadoutContainer
