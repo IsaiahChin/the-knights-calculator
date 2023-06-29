@@ -2,23 +2,46 @@
 
 import { useState } from 'react';
 
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import StatContainer from '@/components/StatContainer';
 import LoadoutContainer from '@/components/LoadoutContainer';
 
-import knight from '@/data/knight';
 import { creditsFleur } from '../assets/ui/fleur';
+import knight from '@/data/knight';
+import spells from '@/constants/spells';
+import { oldNail } from '@/assets/ui/loadout/nail';
 
 export default function Home() {
   const [tabIndex, setTabIndex] = useState(0);
   const [loadout, setLoadout] = useState({
-    maxHealth: knight.health.max,
-    minHealth: knight.health.min,
-    nailDamage: knight.nail.damage[0],
-    nailSwingRate: knight.nail.rate,
-    maxSoul: knight.soul.max,
-    spellCost: knight.soul.cost,
-    soulRegen: knight.nail.soulRegen,
+    health: {
+      max: knight.health.max,
+      min: knight.health.min,
+    },
+    nail: {
+      damage: knight.nail.damage[0],
+      swingRate: knight.nail.rate,
+      image: oldNail,
+    },
+    soul: {
+      max: knight.soul.max,
+      spellCost: knight.soul.cost,
+      regen: knight.nail.soulRegen,
+    },
+    spell: {
+      fireball: {
+        damage: spells[0].damage,
+        icon: spells[0].icon,
+      },
+      dive: {
+        damage: spells[2].damage,
+        icon: spells[2].icon,
+      },
+      wraiths: {
+        damage: spells[4].damage,
+        icon: spells[4].icon,
+      },
+    },
   });
 
   const navLinks = [
@@ -30,11 +53,69 @@ export default function Home() {
     setTabIndex(index);
   }
 
-  function updateNailDamage(newDamage: number) {
+  /**
+   * Updates `nail.damage` and `nail.image` from loadout state
+   * @param newDamage
+   */
+  function updateNail(newDamage: number, image: StaticImageData) {
     setLoadout({
       ...loadout,
-      nailDamage: newDamage,
+      nail: {
+        ...loadout.nail,
+        damage: newDamage,
+        image: image,
+      },
     });
+  }
+
+  /**
+   * Updates `spell.damage` and `spell.icon` from loadout state
+   * @param spellAlias
+   * @param newDamage
+   * @param icon
+   */
+  function updateSpell(
+    spellAlias: String,
+    newDamage: number,
+    icon: StaticImageData
+  ) {
+    if (spellAlias == 'fireball' || spellAlias == 'fireballUpgrade') {
+      setLoadout({
+        ...loadout,
+        spell: {
+          ...loadout.spell,
+          fireball: {
+            ...loadout.spell.fireball,
+            damage: newDamage,
+            icon: icon,
+          },
+        },
+      });
+    } else if (spellAlias == 'dive' || spellAlias == 'diveUpgrade') {
+      setLoadout({
+        ...loadout,
+        spell: {
+          ...loadout.spell,
+          dive: {
+            ...loadout.spell.dive,
+            damage: newDamage,
+            icon: icon,
+          },
+        },
+      });
+    } else if (spellAlias == 'wraiths' || spellAlias == 'wraithsUpgrade') {
+      setLoadout({
+        ...loadout,
+        spell: {
+          ...loadout.spell,
+          wraiths: {
+            ...loadout.spell.wraiths,
+            damage: newDamage,
+            icon: icon,
+          },
+        },
+      });
+    }
   }
 
   return (
@@ -69,8 +150,8 @@ export default function Home() {
         />
         <div className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
           <LoadoutContainer
-            loadout={loadout}
-            updateNailDamage={updateNailDamage}
+            updateNail={updateNail}
+            updateSpell={updateSpell}
           />
         </div>
         <div className={`${tabIndex == 1 ? 'block' : 'hidden'}`}>

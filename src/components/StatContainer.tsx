@@ -1,44 +1,47 @@
-import Image from 'next/image';
-
 import StatBlock from './StatBlock';
 
 import NAILART from '@/constants/nailart';
-import SPELLS from '@/constants/spells';
+import Image from 'next/image';
+import soulorbIcon from '@/assets/ui/soul-orb.png';
 
 export default function StatContainer({ loadout }: { loadout: any }) {
   return (
     <>
-      <div className="h-full p-4">
-        <div id="stats" className="h-[70vh] flex flex-col [&>div]:p-4">
-          <h1 className="h-min p-4 text-center">Damage</h1>
+      <div className="h-max p-4">
+        <div id="stats" className="h-[70vh] flex flex-col">
           <div
             id="damage"
-            className="flex flex-row flex-wrap justify-between [&_div]:mt-4 [&>div]:flex [&>div]:flex-col"
+            className="grid grid-cols-2 gap-x-4 gap-y-12 mt-4 [&>div]:flex [&>div]:flex-col"
           >
-            <div className="justify-start">
-              <h2>Nail</h2>
-              <section className="min-h-max h-40 flex flex-col justify-between mt-4 gap-2">
-                <StatBlock
-                  value={loadout.nailDamage}
-                  valueSize="large"
-                  subValue="dmg"
+            <div className="justify-start w-full">
+              <div className="flex">
+                <Image
+                  src={loadout.nail.image}
+                  alt="Nail"
+                  className="max-w-[50px] mr-16"
                 />
-                <StatBlock
-                  value={loadout.nailSwingRate}
-                  valueSize="large"
-                  subValue="s swing speed"
-                />
-                <StatBlock
-                  value={(loadout.nailDamage / loadout.nailSwingRate).toFixed(
-                    2
-                  )}
-                  valueSize="large"
-                  subValue="dps"
-                />
-              </section>
+                <section className="min-h-max h-40 flex flex-col justify-between mt-4 gap-2">
+                  <StatBlock
+                    value={loadout.nail.damage}
+                    valueSize="large"
+                    subValue="dmg"
+                  />
+                  <StatBlock
+                    value={loadout.nail.swingRate}
+                    valueSize="large"
+                    subValue="s swing speed"
+                  />
+                  <StatBlock
+                    value={(
+                      loadout.nail.damage / loadout.nail.swingRate
+                    ).toFixed(2)}
+                    valueSize="large"
+                    subValue="dps"
+                  />
+                </section>
+              </div>
             </div>
-            <div className="justify-start">
-              <h2>Nail Arts</h2>
+            <div className="justify-start w-full">
               <section className="min-h-max h-40 flex flex-col justify-between mt-4 gap-2">
                 {NAILART.map((nailart, index) => {
                   return (
@@ -46,7 +49,7 @@ export default function StatContainer({ loadout }: { loadout: any }) {
                       key={index}
                       icon={nailart.icon}
                       iconAlt={nailart.name + ' slash'}
-                      value={loadout.nailDamage * nailart.damageMod}
+                      value={loadout.nail.damage * nailart.damageMod}
                       valueSize="medium"
                       subValue={`dmg ${
                         nailart.name == 'cyclone'
@@ -58,44 +61,57 @@ export default function StatContainer({ loadout }: { loadout: any }) {
                 })}
               </section>
             </div>
-            <div className="jusitfy-start">
-              <h2>Spells</h2>
+            <div className="jusitfy-start w-full">
+              <div className="flex items-center">
+                <Image
+                  src={soulorbIcon}
+                  alt="Soul Orb"
+                  className="max-w-[100px] mr-4"
+                />
+                <section className="min-h-max h-40 flex flex-col justify-between mt-4 gap-2">
+                  <StatBlock
+                    value={loadout.soul.max}
+                    valueSize="large"
+                    subValue="max"
+                  />
+                  <StatBlock
+                    value={loadout.soul.spellCost}
+                    valueSize="large"
+                    subValue="per spell"
+                  />
+                  <StatBlock
+                    value={loadout.soul.regen}
+                    valueSize="large"
+                    subValue="regen on nail hit"
+                  />
+                </section>
+              </div>
+            </div>
+            <div className="jusitfy-start w-full">
               <section className="min-h-max h-40 flex flex-col justify-between mt-4 gap-2">
-                {SPELLS.map((spell, index) => {
-                  if (index % 2 == 0)
-                    return (
-                      <StatBlock
-                        key={index}
-                        icon={spell.icon}
-                        iconAlt={spell.name}
-                        value={spell.damage}
-                        valueSize="medium"
-                        subValue={`dmg`}
-                      />
-                    );
-                })}
+                <StatBlock
+                  icon={loadout.spell.fireball.icon}
+                  iconAlt="fireball"
+                  value={loadout.spell.fireball.damage}
+                  valueSize="medium"
+                  subValue="dmg"
+                />
+                <StatBlock
+                  icon={loadout.spell.dive.icon}
+                  iconAlt="dive"
+                  value={loadout.spell.dive.damage}
+                  valueSize="medium"
+                  subValue="dmg"
+                />
+                <StatBlock
+                  icon={loadout.spell.wraiths.icon}
+                  iconAlt="wraiths"
+                  value={loadout.spell.wraiths.damage}
+                  valueSize="medium"
+                  subValue="dmg"
+                />
               </section>
             </div>
-          </div>
-          <h1 className="h-min p-4 text-center">Soul</h1>
-          <div id="soul" className="flex flex-row flex-wrap justify-between">
-            <section className="w-full flex flex-row justify-between mt-4">
-              <StatBlock
-                value={loadout.maxSoul}
-                valueSize="large"
-                subValue="max"
-              />
-              <StatBlock
-                value={loadout.spellCost}
-                valueSize="large"
-                subValue="per spell"
-              />
-              <StatBlock
-                value={loadout.soulRegen}
-                valueSize="large"
-                subValue="gain on hit"
-              />
-            </section>
           </div>
         </div>
       </div>

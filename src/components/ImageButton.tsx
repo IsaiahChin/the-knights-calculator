@@ -9,19 +9,37 @@ export default function ImageButton({
   selected,
   onClickFunction,
   nailDamage,
-  updateNailDamage,
+  updateNail,
+  spellAlias,
+  spellDamage,
+  spellIcon,
+  updateSpell,
 }: {
   image: StaticImageData;
   altText: string;
   selected: Boolean;
-  onClickFunction: Function;
+  onClickFunction?: Function;
   nailDamage?: number;
-  updateNailDamage?: (newDamage: number) => void;
+  updateNail?: (newDamage: number, image: StaticImageData) => void;
+  spellAlias?: String;
+  spellDamage?: number;
+  spellIcon?: StaticImageData;
+  updateSpell?: (
+    spellAlias: String,
+    newDamage: number,
+    icon: StaticImageData
+  ) => void;
 }) {
   return (
     <div className="relative">
       {selected && (
-        <div className="absolute z-[1] inset-[-35px]">
+        <div
+          className={`absolute z-[1] ${
+            nailDamage != undefined
+              ? 'inset-[-35px]'
+              : 'inset-[-50px_-30px] mb-2'
+          }`}
+        >
           <Image
             className="selection-corner top-0 left-0"
             src={selectionBorder}
@@ -48,9 +66,12 @@ export default function ImageButton({
         type="button"
         className="relative z-[2] max-w-[50px]"
         onClick={() => {
-          onClickFunction(altText);
+          onClickFunction?.(altText);
           if (nailDamage != null) {
-            updateNailDamage?.(nailDamage);
+            updateNail?.(nailDamage, image);
+          }
+          if (spellDamage != null && spellAlias != null && spellIcon) {
+            updateSpell?.(spellAlias, spellDamage, spellIcon);
           }
         }}
       >
