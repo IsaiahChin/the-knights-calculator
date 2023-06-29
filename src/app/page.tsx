@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Image, { StaticImageData } from 'next/image';
 import StatContainer from '@/components/StatContainer';
-import LoadoutContainer from '@/components/LoadoutContainer';
+import LoadoutContainer from '@/components/loadout/LoadoutContainer';
 
 import { creditsFleur } from '../assets/ui/fleur';
 import knight from '@/data/knight';
