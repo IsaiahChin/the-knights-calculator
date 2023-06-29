@@ -1,7 +1,7 @@
 'use client';
 
 import Image, { StaticImageData } from 'next/image';
-import selectionBorder from '@/assets/ui/selection-corner.png';
+import SelectionBorder from './SelectionBorder';
 
 export default function ImageButton({
   image,
@@ -35,34 +35,11 @@ export default function ImageButton({
   return (
     <div className="relative">
       {selected && (
-        <div
-          className={`absolute z-[1] ${
-            nailDamage != undefined
-              ? 'inset-[-35px]'
-              : 'inset-[-50px_-30px] mb-2'
+        <SelectionBorder
+          target={`${nailDamage != undefined ? 'nail' : ''}${
+            spellDamage != undefined ? 'spell' : ''
           }`}
-        >
-          <Image
-            className="selection-corner top-0 left-0"
-            src={selectionBorder}
-            alt=""
-          ></Image>
-          <Image
-            className="selection-corner top-0 right-0 rotate-90"
-            src={selectionBorder}
-            alt=""
-          ></Image>
-          <Image
-            className="selection-corner bottom-0 right-0 rotate-180"
-            src={selectionBorder}
-            alt=""
-          ></Image>
-          <Image
-            className="selection-corner bottom-0 left-0 -rotate-90"
-            src={selectionBorder}
-            alt=""
-          ></Image>
-        </div>
+        />
       )}
       <button
         type="button"
