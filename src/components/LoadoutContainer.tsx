@@ -22,36 +22,39 @@ export default function LoadoutContainer({
 }) {
   const [nails, setNails] = useState([
     {
-      name: 'old',
+      name: 'Old Nail',
       damage: knight.nail.damage[0],
       image: NailAssets.oldNail,
       selected: true,
     },
     {
-      name: 'sharpened',
+      name: 'Sharpened Nail',
       damage: knight.nail.damage[1],
       image: NailAssets.sharpenedNail,
       selected: false,
     },
     {
-      name: 'channelled',
+      name: 'Channelled Nail',
       damage: knight.nail.damage[2],
       image: NailAssets.channelledNail,
       selected: false,
     },
     {
-      name: 'coiled',
+      name: 'Coiled Nail',
       damage: knight.nail.damage[3],
       image: NailAssets.coiledNail,
       selected: false,
     },
     {
-      name: 'pure',
+      name: 'Pure Nail',
       damage: knight.nail.damage[4],
       image: NailAssets.pureNail,
       selected: false,
     },
   ]);
+
+  const initialNail = nails.find((nail) => nail.selected);
+  const [currentNail, setCurrentNail] = useState(initialNail?.name);
 
   const [fireball, setFireball] = useState([
     {
@@ -104,23 +107,14 @@ export default function LoadoutContainer({
     },
   ]);
 
-  function handleNailSelection(name: String) {
-    // Get index of selected nail
-    const currentNailSelection = nails.findIndex((nail) => nail.name == name);
+  function handleNailSelection(nailIndex: number) {
+    const updatedNails = nails.map((nail, index) => ({
+      ...nail,
+      selected: index === nailIndex,
+    }));
 
-    // Set selected to true
-    const newNailSelection = { ...nails[currentNailSelection], selected: true };
-
-    // Copy nails and update the newly selected nail
-    const newNails = nails.slice();
-    newNails[currentNailSelection] = newNailSelection;
-
-    // Make sure only one nail is selected
-    newNails.map((nail) => {
-      nail.selected = nail.name == name;
-    });
-
-    setNails(newNails);
+    setNails(updatedNails);
+    setCurrentNail(updatedNails[nailIndex].name);
   }
 
   function handleFireballSelection(name: String) {
@@ -186,23 +180,20 @@ export default function LoadoutContainer({
   return (
     <>
       <section>
-        <h1 className="h-min p-8 text-center">Nail Upgrades</h1>
+        <h1 className="h-min p-8 text-center">{currentNail}</h1>
         <div
           id="nail-container"
           className="flex flex-wrap gap-10 justify-evenly"
         >
-          {nails.map((nail: any) => {
+          {nails.map((nail: any, index) => {
             return (
               <div className="flex flex-col items-center gap-4" key={nail.name}>
-                <h3>
-                  {nail.name[0].toUpperCase() +
-                    nail.name.slice(1, nail.name.length)}
-                </h3>
                 <ImageButton
                   image={nail.image}
                   altText={nail.name}
                   selected={nail.selected}
                   nailDamage={nail.damage}
+                  index={index}
                   onClickFunction={handleNailSelection}
                   updateNail={updateNail}
                 />

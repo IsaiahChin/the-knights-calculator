@@ -7,6 +7,7 @@ export default function ImageButton({
   image,
   altText,
   selected,
+  index,
   onClickFunction,
   nailDamage,
   updateNail,
@@ -18,6 +19,7 @@ export default function ImageButton({
   image: StaticImageData;
   altText: string;
   selected: Boolean;
+  index?: number;
   onClickFunction?: Function;
   nailDamage?: number;
   updateNail?: (newDamage: number, image: StaticImageData) => void;
@@ -66,7 +68,7 @@ export default function ImageButton({
         type="button"
         className="relative z-[2] max-w-[50px]"
         onClick={() => {
-          onClickFunction?.(altText);
+          onClickFunction?.(index);
           if (nailDamage != null) {
             updateNail?.(nailDamage, image);
           }
