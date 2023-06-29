@@ -1,5 +1,3 @@
-'use client';
-
 import Image, { StaticImageData } from 'next/image';
 import SelectionBorder from './SelectionBorder';
 
@@ -46,10 +44,14 @@ export default function ImageButton({
         className="relative z-[2] max-w-[50px]"
         onClick={() => {
           onClickFunction?.(index);
-          if (nailDamage != null) {
+          if (nailDamage != undefined) {
             updateNail?.(nailDamage, image);
           }
-          if (spellDamage != null && spellAlias != null && spellIcon) {
+          if (
+            spellDamage != undefined &&
+            spellAlias != undefined &&
+            spellIcon != undefined
+          ) {
             updateSpell?.(spellAlias, spellDamage, spellIcon);
           }
         }}
