@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+import '@/styles/globals.css';
 import { Metadata } from 'next';
 import { Roboto_Slab } from 'next/font/google';
 

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { StaticImageData } from 'next/image';
 
-import ImageButton from '../ImageButton';
+import ImageButton from './ImageButton';
 
 import knight from '@/data/knight';
 import * as NailAssets from '@/assets/ui/loadout/nail';
@@ -11,7 +11,7 @@ import * as NailAssets from '@/assets/ui/loadout/nail';
 export default function NailContainer({
   updateNail,
 }: {
-  updateNail?: (newDamage: number, image: StaticImageData) => void;
+  updateNail?: (newDamage: number, newImage: StaticImageData) => void;
 }) {
   const [nails, setNails] = useState([
     {

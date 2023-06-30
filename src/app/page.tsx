@@ -6,10 +6,10 @@ import Image, { StaticImageData } from 'next/image';
 import StatContainer from '@/components/StatContainer';
 import LoadoutContainer from '@/components/loadout/LoadoutContainer';
 
-import { creditsFleur } from '../assets/ui/fleur';
+import { creditsFleur } from '@/assets/ui/fleur';
+import { oldNail } from '@/assets/ui/loadout/nail';
 import knight from '@/data/knight';
 import spells from '@/constants/spells';
-import { oldNail } from '@/assets/ui/loadout/nail';
 
 export default function Home() {
   const [tabIndex, setTabIndex] = useState(0);
@@ -57,13 +57,13 @@ export default function Home() {
    * Updates `nail.damage` and `nail.image` from loadout state
    * @param newDamage
    */
-  function updateNail(newDamage: number, image: StaticImageData) {
+  function updateNail(newDamage: number, newImage: StaticImageData) {
     setLoadout({
       ...loadout,
       nail: {
         ...loadout.nail,
         damage: newDamage,
-        image: image,
+        image: newImage,
       },
     });
   }
@@ -149,10 +149,7 @@ export default function Home() {
           className="m-[0_auto] max-w-[80%] mt-4"
         />
         <div className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
-          <LoadoutContainer
-            updateNail={updateNail}
-            updateSpell={updateSpell}
-          />
+          <LoadoutContainer updateNail={updateNail} updateSpell={updateSpell} />
         </div>
         <div className={`${tabIndex == 1 ? 'block' : 'hidden'}`}>
           <h1 className="h-min p-8 text-center">Enemies</h1>

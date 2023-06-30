@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
-import SelectionBorder from './SelectionBorder';
+import SelectionBorder from '../SelectionBorder';
 
 export default function ImageButton({
   image,
@@ -9,9 +9,6 @@ export default function ImageButton({
   onClickFunction,
   nailDamage,
   updateNail,
-  spellAlias,
-  spellDamage,
-  spellIcon,
   updateSpell,
 }: {
   image: StaticImageData;
@@ -20,22 +17,15 @@ export default function ImageButton({
   index?: number;
   onClickFunction?: Function;
   nailDamage?: number;
-  updateNail?: (newDamage: number, image: StaticImageData) => void;
-  spellAlias?: String;
-  spellDamage?: number;
-  spellIcon?: StaticImageData;
-  updateSpell?: (
-    spellAlias: String,
-    newDamage: number,
-    icon: StaticImageData
-  ) => void;
+  updateNail?: (newDamage: number, newImage: StaticImageData) => void;
+  updateSpell?: Function;
 }) {
   return (
     <div className="relative">
       {selected && (
         <SelectionBorder
           target={`${nailDamage != undefined ? 'nail' : ''}${
-            spellDamage != undefined ? 'spell' : ''
+            updateSpell != undefined ? 'spell' : ''
           }`}
         />
       )}
@@ -47,13 +37,7 @@ export default function ImageButton({
           if (nailDamage != undefined) {
             updateNail?.(nailDamage, image);
           }
-          if (
-            spellDamage != undefined &&
-            spellAlias != undefined &&
-            spellIcon != undefined
-          ) {
-            updateSpell?.(spellAlias, spellDamage, spellIcon);
-          }
+          updateSpell?.();
         }}
       >
         <Image src={image} alt={altText} className={`${selected && 'glow'}`} />

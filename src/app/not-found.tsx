@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import mapPrompt from '../assets/ui/map-prompt.png';
+import mapPrompt from '@/assets/ui/map-prompt.png';
 import Image from 'next/image';
 
 export default function NotFound() {

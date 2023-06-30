@@ -2,17 +2,16 @@
 
 import { useState } from 'react';
 
-import ImageButton from '@/components/ImageButton';
-
 import spells from '@/constants/spells';
 import { StaticImageData } from 'next/image';
 import NailContainer from './NailContainer';
+import SpellContainer from './SpellContainer';
 
 export default function LoadoutContainer({
   updateNail,
   updateSpell,
 }: {
-  updateNail?: (newDamage: number, image: StaticImageData) => void;
+  updateNail?: (newDamage: number, newImage: StaticImageData) => void;
   updateSpell?: (
     spellAlias: String,
     newDamage: number,
@@ -115,81 +114,24 @@ export default function LoadoutContainer({
       <section>
         <h1 className="h-min p-8 text-center">Spells</h1>
         <div id="spell-container" className="grid grid-cols-3 justify-evenly">
-          <div className="flex flex-col items-center gap-8">
-            <h3>{currentFireball}</h3>
-            <div className="flex flex-row gap-12">
-              {fireball.map((spell, index) => {
-                return (
-                  <div
-                    className="flex flex-col items-center gap-8"
-                    key={spell.name}
-                  >
-                    <ImageButton
-                      image={spell.image}
-                      altText={spell.alias}
-                      selected={spell.selected}
-                      index={index}
-                      onClickFunction={handleFireballSelection}
-                      spellAlias={spell.alias}
-                      spellDamage={spell.damage}
-                      spellIcon={spell.image}
-                      updateSpell={updateSpell}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          <div className="flex flex-col items-center gap-8">
-            <h3>{currentDive}</h3>
-            <div className="flex flex-row gap-12">
-              {dive.map((spell, index) => {
-                return (
-                  <div
-                    className="flex flex-col items-center gap-8"
-                    key={spell.name}
-                  >
-                    <ImageButton
-                      image={spell.image}
-                      altText={spell.alias}
-                      selected={spell.selected}
-                      index={index}
-                      onClickFunction={handleDiveSelection}
-                      spellAlias={spell.alias}
-                      spellDamage={spell.damage}
-                      spellIcon={spell.image}
-                      updateSpell={updateSpell}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          <div className="flex flex-col items-center gap-8">
-            <h3>{currentWraiths}</h3>
-            <div className="flex flex-row gap-12">
-              {wraiths.map((spell, index) => {
-                return (
-                  <div
-                    className="flex flex-col items-center gap-8"
-                    key={spell.name}
-                  >
-                    <ImageButton
-                      image={spell.image}
-                      altText={spell.alias}
-                      selected={spell.selected}
-                      index={index}
-                      onClickFunction={handleWraithsSelection}
-                      spellAlias={spell.alias}
-                      spellDamage={spell.damage}
-                      spellIcon={spell.image}
-                      updateSpell={updateSpell}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <SpellContainer
+            title={currentFireball}
+            spells={fireball}
+            handleSelection={handleFireballSelection}
+            updateSpell={updateSpell}
+          />
+          <SpellContainer
+            title={currentDive}
+            spells={dive}
+            handleSelection={handleDiveSelection}
+            updateSpell={updateSpell}
+          />
+          <SpellContainer
+            title={currentWraiths}
+            spells={wraiths}
+            handleSelection={handleWraithsSelection}
+            updateSpell={updateSpell}
+          />
         </div>
       </section>
     </>

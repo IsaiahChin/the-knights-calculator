@@ -1,7 +1,7 @@
-import * as EnemyIcons from '../assets/enemy-icons/index';
-import * as EnemyFull from '../assets/enemies/index';
-import * as CONTENT from '../constants/content';
-import * as ENEMY from '../constants/enemy';
+import * as EnemyIcons from '@/assets/enemy-icons/index';
+import * as EnemyFull from '@/assets/enemies/index';
+import * as CONTENT from '@/constants/content';
+import * as ENEMY from '@/constants/enemy';
 
 const enemies = [
   {
