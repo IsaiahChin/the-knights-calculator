@@ -1,8 +1,6 @@
 import { StaticImageData } from 'next/image';
 import ImageButton from './ImageButton';
 
-// TODO: You were *trying* to refactor SpellContainers
-
 export default function SpellContainer({
   title,
   spells,
