@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-3xl sm:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl;
+  }
+
+  img {
+    @apply w-auto h-fit aspect-auto object-contain select-none;
+  }
+}
+
+@layer components {
+  .selection-corner {
+    @apply absolute w-20 h-20 max-w-[30px];
+  }
+}
+
+@layer utilities {
+  .glow {
+    @apply drop-shadow-[0_0_0.45rem_white];
+  }
+}
+
 :root {
   @apply text-base sm:text-lg;
 }
@@ -11,6 +50,7 @@
 }
 
 html {
+  text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
