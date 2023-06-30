@@ -2,7 +2,7 @@ import StatBlock from './StatBlock';
 
 import NAILART from '@/constants/nailart';
 import Image from 'next/image';
-import soulOrb from '@/assets/ui/soul-orb.png';
+import focus from '@/assets/ui/focus.png';
 
 export default function StatContainer({ loadout }: { loadout: any }) {
   return (
@@ -52,7 +52,7 @@ export default function StatContainer({ loadout }: { loadout: any }) {
             })}
           </StatWrapper>
           <section className="hidden lg:flex items-center justify-center">
-            <Image src={soulOrb} alt="Soul Orb" />
+            <Image src={focus} alt="Focus" className="max-w-[150px]" />
           </section>
           <StatWrapper>
             <StatBlock
