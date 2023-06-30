@@ -151,8 +151,9 @@ export default function Home() {
         <div className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
           <LoadoutContainer updateNail={updateNail} updateSpell={updateSpell} />
         </div>
-        <div className={`${tabIndex == 1 ? 'block' : 'hidden'}`}>
-          <h1 className="h-min p-8 text-center">Enemies</h1>
+        <div className={`${tabIndex == 1 ? 'block' : 'hidden'} text-center`}>
+          <h1 className="h-min p-8">Enemies</h1>
+          <p>Coming soon...</p>
         </div>
       </section>
     </>
