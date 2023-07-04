@@ -1,11 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-
-import spells from '@/constants/spells';
 import { StaticImageData } from 'next/image';
+
+import CharmContainer from './CharmContainer';
 import NailContainer from './NailContainer';
 import SpellContainer from './SpellContainer';
+import Separator from '../Separator';
+
+import spells from '@/constants/spells';
 
 export default function LoadoutContainer({
   updateNail,
@@ -110,8 +113,12 @@ export default function LoadoutContainer({
 
   return (
     <>
+      <section>
+        <CharmContainer />
+      </section>
       <NailContainer updateNail={updateNail} />
       <section>
+        <Separator />
         <h1 className="h-min p-8 text-center">Spells</h1>
         <div id="spell-container" className="grid grid-cols-3 justify-evenly">
           <SpellContainer

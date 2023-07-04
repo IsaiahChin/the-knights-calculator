@@ -1,7 +1,7 @@
 import StatBlock from './StatBlock';
+import Image from 'next/image';
 
 import NAILART from '@/constants/nailart';
-import Image from 'next/image';
 import focus from '@/assets/ui/focus.png';
 
 export default function StatContainer({ loadout }: { loadout: any }) {

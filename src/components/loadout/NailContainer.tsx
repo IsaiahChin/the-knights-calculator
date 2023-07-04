@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { StaticImageData } from 'next/image';
 
 import ImageButton from './ImageButton';
+import Separator from '../Separator';
 
 import knight from '@/data/knight';
 import * as NailAssets from '@/assets/ui/loadout/nail';
@@ -61,6 +62,7 @@ export default function NailContainer({
 
   return (
     <section>
+      <Separator />
       <h1 className="h-min p-8 text-center">{currentNail}</h1>
       <div id="nail-container" className="flex flex-wrap justify-evenly gap-4">
         {nails.map((nail: any, index: number) => {
