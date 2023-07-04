@@ -35,9 +35,12 @@ export default function Header() {
         id="blur-overlay"
         className={`${
           isInfoShowing ? 'block' : 'hidden'
-        } fixed top-0 left-0 z-40 w-full h-full bg-zinc-950 bg-opacity-95 backdrop-blur-sm flex justify-center items-center`}
+        } fixed top-0 left-0 z-40 w-screen h-screen bg-zinc-950 bg-opacity-95 backdrop-blur-sm flex justify-center items-center`}
       >
-        <div id="center" className="text-center w-1/3 h-1/2">
+        <div
+          id="center"
+          className="w-1/3 h-full flex flex-col text-center justify-center"
+        >
           <div id="info-box" className="flex flex-col items-center">
             <Image src={pauseTopFleur} alt="" className="max-w-[350px]" />
             <h1 className="w-max my-4">The Knight's Calculator</h1>

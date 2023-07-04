@@ -45,7 +45,7 @@ export default function Home() {
   });
 
   const navLinks = [
-    { index: 0, title: 'Inventory' },
+    { index: 0, title: 'Loadout' },
     { index: 1, title: 'Enemies' },
   ];
 
@@ -122,7 +122,7 @@ export default function Home() {
     <>
       <section className="w-2/5 h-auto p-4">
         <h1 className="text-center py-3">The Knight's Calculator</h1>
-        <Image src={creditsFleur} alt="" className="m-[0_auto] mt-4" />
+        <Image src={creditsFleur} alt="" className="mx-auto mt-4" />
         <StatContainer loadout={loadout} />
       </section>
       <section className="w-3/5 h-auto p-4">
@@ -143,12 +143,8 @@ export default function Home() {
             ))}
           </ul>
         </nav>
-        <Image
-          src={creditsFleur}
-          alt=""
-          className="m-[0_auto] max-w-[80%] mt-4"
-        />
-        <div className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
+        <Image src={creditsFleur} alt="" className="mx-auto max-w-[90%] mt-4" />
+        <div className={`${tabIndex == 0 ? 'block' : 'hidden'} px-16 py-8`}>
           <LoadoutContainer updateNail={updateNail} updateSpell={updateSpell} />
         </div>
         <div className={`${tabIndex == 1 ? 'block' : 'hidden'} text-center`}>
