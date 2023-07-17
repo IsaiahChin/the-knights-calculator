@@ -62,36 +62,36 @@ const charms = [
     origin: CONTENT.PACKS.MAIN,
     image: SpellIcons.grubberflysElegy,
   },
-  {
-    name: 'Fragile Heart',
-    cost: 2,
-    origin: CONTENT.PACKS.MAIN,
-    image: SpellIcons.fragileHeart,
-  },
+  // {
+  //   name: 'Fragile Heart',
+  //   cost: 2,
+  //   origin: CONTENT.PACKS.MAIN,
+  //   image: SpellIcons.fragileHeart,
+  // },
   {
     name: 'Unbreakable Heart',
     cost: 2,
     origin: CONTENT.PACKS.THE_GRIMM_TROUPE,
     image: SpellIcons.unbreakableHeart,
   },
-  {
-    name: 'Fragile Greed',
-    cost: 2,
-    origin: CONTENT.PACKS.MAIN,
-    image: SpellIcons.fragileGreed,
-  },
+  // {
+  //   name: 'Fragile Greed',
+  //   cost: 2,
+  //   origin: CONTENT.PACKS.MAIN,
+  //   image: SpellIcons.fragileGreed,
+  // },
   {
     name: 'Unbreakable Greed',
     cost: 2,
     origin: CONTENT.PACKS.THE_GRIMM_TROUPE,
     image: SpellIcons.unbreakableGreed,
   },
-  {
-    name: 'Fragile Strength',
-    cost: 3,
-    origin: CONTENT.PACKS.MAIN,
-    image: SpellIcons.fragileStrength,
-  },
+  // {
+  //   name: 'Fragile Strength',
+  //   cost: 3,
+  //   origin: CONTENT.PACKS.MAIN,
+  //   image: SpellIcons.fragileStrength,
+  // },
   {
     name: 'Unbreakable Strength',
     cost: 3,
@@ -260,18 +260,18 @@ const charms = [
     origin: CONTENT.PACKS.THE_GRIMM_TROUPE,
     image: SpellIcons.grimmchild,
   },
-  {
-    name: 'Kingsoul',
-    cost: 5,
-    origin: CONTENT.PACKS.MAIN,
-    image: SpellIcons.kingsoul,
-  },
-  {
-    name: 'Void Heart',
-    cost: 0,
-    origin: CONTENT.PACKS.MAIN,
-    image: SpellIcons.voidHeart,
-  },
+  // {
+  //   name: 'Kingsoul',
+  //   cost: 5,
+  //   origin: CONTENT.PACKS.MAIN,
+  //   image: SpellIcons.kingsoul,
+  // },
+  // {
+  //   name: 'Void Heart',
+  //   cost: 0,
+  //   origin: CONTENT.PACKS.MAIN,
+  //   image: SpellIcons.voidHeart,
+  // },
 ];
 
 export default charms;
