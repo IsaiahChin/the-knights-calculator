@@ -7,7 +7,7 @@ import focus from '@/assets/ui/focus.png';
 export default function StatContainer({ loadout }: { loadout: any }) {
   return (
     <div className="h-max p-4">
-      <div id="stats" className="h-[70vh] flex flex-col">
+      <div id="stats" className="h-auto flex flex-col">
         <div className="grid grid-cols-2 lg:grid-cols-[0.6fr_repeat(2,_1fr)] grid-rows-2 gap-y-12 mt-4">
           <section className="hidden lg:flex items-center justify-center">
             <Image
@@ -58,17 +58,17 @@ export default function StatContainer({ loadout }: { loadout: any }) {
             <StatBlock
               value={loadout.soul.max}
               valueSize="large"
-              subValue="max"
+              subValue="max soul"
             />
             <StatBlock
               value={loadout.soul.spellCost}
               valueSize="large"
-              subValue="per spell"
+              subValue="soul / spell"
             />
             <StatBlock
               value={loadout.soul.regen}
               valueSize="large"
-              subValue="regen on nail hit"
+              subValue="soul / nail hit"
             />
           </StatWrapper>
           <StatWrapper>
