@@ -1,6 +1,8 @@
 {
   "name": "the-knights-calculator",
+  "description": "A damage analysis tool for Hollow Knight",
   "version": "0.1.0",
+  "author": "Isaiah Chin <hello@isaiahchin.com> (https://www.isaiahchin.com/)",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,6 +10,12 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "keywords": [
+    "hollow-knight",
+    "analysis",
+    "calculator",
+    "tool"
+  ],
   "dependencies": {
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
