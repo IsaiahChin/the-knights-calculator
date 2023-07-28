@@ -11,7 +11,7 @@ export default function SelectionBorder({ target }: { target: String }) {
   }
 
   return (
-    <div className={`absolute z-[1] ${classList}`}>
+    <div className={`absolute z-10 ${classList}`}>
       <Image
         className="selection-corner top-0 left-0"
         src={selectionBorder}
