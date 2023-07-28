@@ -1,18 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import { StaticImageData } from 'next/image';
 
-import Image, { StaticImageData } from 'next/image';
-import StatContainer from '@/components/StatContainer';
+import StatContainer from '@/components/stat/StatContainer';
+import EnemyContainer from '@/components/enemy/EnemyContainer';
 import LoadoutContainer from '@/components/loadout/LoadoutContainer';
 
-import { creditsFleur } from '@/assets/ui/fleur';
 import { oldNail } from '@/assets/ui/loadout/nail';
 import knight from '@/data/knight';
 import spells from '@/constants/spells';
 
 export default function Home() {
-  const [tabIndex, setTabIndex] = useState(0);
   const [loadout, setLoadout] = useState({
     health: {
       max: knight.health.max,
@@ -43,15 +42,6 @@ export default function Home() {
       },
     },
   });
-
-  const navLinks = [
-    { index: 0, title: 'Loadout' },
-    { index: 1, title: 'Enemies' },
-  ];
-
-  function handleTabChange(index: number) {
-    setTabIndex(index);
-  }
 
   /**
    * Updates `nail.damage` and `nail.image` from loadout state
@@ -119,39 +109,10 @@ export default function Home() {
   }
 
   return (
-    <>
-      <section className="w-2/5 h-auto p-4">
-        <h1 className="text-center py-3">The Knight's Calculator</h1>
-        <Image src={creditsFleur} alt="" className="mx-auto mt-4" />
-        <StatContainer loadout={loadout} />
-      </section>
-      <section className="w-3/5 h-auto p-4">
-        <nav className="w-full px-3 p-4 flex items-center justify-center">
-          <ul className="inline-flex justify-center gap-4">
-            {navLinks.map((link) => (
-              <li key={link.index}>
-                <button
-                  type="button"
-                  onClick={() => handleTabChange(link.index)}
-                  className={`${
-                    tabIndex == link.index && 'underline'
-                  } underline-offset-8 decoration-white decoration-2 hover:underline`}
-                >
-                  {link.title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <Image src={creditsFleur} alt="" className="mx-auto max-w-[90%] mt-4" />
-        <div className={`${tabIndex == 0 ? 'block' : 'hidden'} px-16 py-8`}>
-          <LoadoutContainer updateNail={updateNail} updateSpell={updateSpell} />
-        </div>
-        <div className={`${tabIndex == 1 ? 'block' : 'hidden'} text-center`}>
-          <h1 className="h-min p-8">Enemies</h1>
-          <p>Coming soon...</p>
-        </div>
-      </section>
-    </>
+    <div className="flex gap-4 relative">
+      <EnemyContainer />
+      <StatContainer loadout={loadout} />
+      <LoadoutContainer updateNail={updateNail} updateSpell={updateSpell} />
+    </div>
   );
 }
