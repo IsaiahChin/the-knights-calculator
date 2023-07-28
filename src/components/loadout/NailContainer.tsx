@@ -61,10 +61,12 @@ export default function NailContainer({
   }
 
   return (
-    <section>
-      <Separator />
-      <h1 className="h-min p-8 text-center">{currentNail}</h1>
-      <div id="nail-container" className="flex flex-wrap justify-evenly gap-4">
+    <section className="w-auto p-4">
+      <h1 className="pb-4">{currentNail}</h1>
+      <div
+        id="nail-container"
+        className="flex flex-wrap gap-x-16 px-12 justify-evenly"
+      >
         {nails.map((nail: any, index: number) => {
           return (
             <div className="flex flex-col items-center gap-4" key={nail.name}>
