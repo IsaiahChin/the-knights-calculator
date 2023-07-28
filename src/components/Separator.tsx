@@ -1,5 +1,7 @@
-export default function Separator() {
+export default function Separator({ padding = '4' }) {
   return (
-    <hr className="w-full h-[2px] mx-auto my-8 bg-white border-0 rounded-lg" />
+    <hr
+      className={`w-full h-[2px] mx-auto my-${padding} bg-zinc-100 border-0 rounded-lg`}
+    />
   );
 }
