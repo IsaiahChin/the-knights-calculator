@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="flex w-fit mx-auto p-4 justify-center text-xs">
+    <footer className="w-fit p-4 mx-auto flex justify-center text-xs">
       <p className="[&_a]:underline [&_a]:underline-offset-2">
         Built by{' '}
         <Link href="https://www.isaiahchin.com/" target="_blank">
