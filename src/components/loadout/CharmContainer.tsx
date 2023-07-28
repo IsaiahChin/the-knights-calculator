@@ -133,13 +133,13 @@ export default function CharmContainer() {
     return (
       <div
         id="charm-container"
-        className="flex flex-wrap justify-center items-center 2xl:w-[50rem] mx-auto"
+        className="flex flex-wrap items-center md:w-[50rem] mx-auto"
       >
         {charmRows.map((charms, index) => (
           <div
             key={index}
             className={`charm-row flex gap-2 flex-wrap ${
-              index % 2 == 0 ? '2xl:mr-10' : '2xl:ml-10'
+              index % 2 == 0 ? 'md:mr-10' : 'md:ml-10'
             }`}
           >
             {charms.map((charm, charmIndex) => (
@@ -196,18 +196,18 @@ export default function CharmContainer() {
         <h2 className={notches.active > notches.max ? 'text-[#e676cf]' : ''}>
           {notches.active > notches.max ? 'OVERCHARMED' : 'Equipped'}
         </h2>
-        <div className="flex flex-wrap py-4 items-center gap-4 [&>*]:mr-[10px]">
+        <div className="flex flex-wrap py-4 items-center gap-4 [&>*]:mr-[10px] relative">
           {notches.active > notches.max && (
             <Image
               src={overcharmedBackboard}
               alt=""
-              className="hidden lg:block absolute -z-10"
+              className="hidden lg:block absolute z-10"
             />
           )}
           <Image
             src={voidHeartCharm}
             alt="Void Heart"
-            className="max-w-[70px]"
+            className="max-w-[70px] relative z-20"
           />
           {equippedCharms.map((charm, index) => (
             <button
@@ -222,7 +222,7 @@ export default function CharmContainer() {
               <Image
                 src={charm.image}
                 alt={charm.name}
-                className="max-w-[70px]"
+                className="relative max-w-[70px] z-20"
               />
             </button>
           ))}
