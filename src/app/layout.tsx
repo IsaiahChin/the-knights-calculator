@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import { Roboto_Slab } from 'next/font/google';
 
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 const robotoSlab = Roboto_Slab({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -31,20 +30,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-zinc-950 text-white">
+    <html lang="en" className="bg-zinc-950 text-zinc-100">
       <body
-        className={`${robotoSlab.className} overflow-x-hidden m-0 mx-auto min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
+        className={`${robotoSlab.className} overflow-x-hidden m-0 min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
       >
-        <div
-          id="bg-overlay"
-          className="w-screen flex flex-col backdrop-blur-[2px] backdrop-brightness-[0.4]"
-        >
-          <Header />
-          <main className="w-auto h-auto mx-4 my-2 inline-flex gap-2">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <Header />
+        <main className="w-10/12 mx-auto h-auto min-h-screen relative">
+          {children}
+        </main>
       </body>
     </html>
   );
