@@ -17,8 +17,8 @@ export default function SpellContainer({
   ) => void;
 }) {
   return (
-    <div className="flex flex-col items-center gap-8">
-      <h3>{title}</h3>
+    <div className="w-auto min-w-[13rem] flex flex-col items-center gap-8">
+      <h3 className="w-max">{title}</h3>
       <div className="flex flex-row gap-12">
         {spells.map((spell: any, index: any) => {
           return (

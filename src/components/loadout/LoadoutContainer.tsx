@@ -1,12 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { StaticImageData } from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 import CharmContainer from './CharmContainer';
 import NailContainer from './NailContainer';
 import SpellContainer from './SpellContainer';
 import Separator from '../Separator';
+
+import nailIcon from '@/assets/ui/nail-icon.png';
+import soulOrb from '@/assets/ui/soul-orb.png';
+import charmNotch from '@/assets/ui/charm-notch.png';
 
 import spells from '@/constants/spells';
 
@@ -21,6 +25,18 @@ export default function LoadoutContainer({
     icon: StaticImageData
   ) => void;
 }) {
+  const [tabIndex, setTabIndex] = useState(0);
+
+  function handleTabChange(index: number) {
+    setTabIndex(index);
+  }
+
+  const loadoutButtons = [
+    { id: 0, name: 'Charms', icon: charmNotch },
+    { id: 1, name: 'Spells', icon: soulOrb },
+    { id: 2, name: 'Nails', icon: nailIcon },
+  ];
+
   const [fireball, setFireball] = useState([
     {
       name: spells[0].name,
@@ -112,15 +128,40 @@ export default function LoadoutContainer({
   }
 
   return (
-    <>
-      <section>
+    <section className="w-3/6">
+      <Separator />
+      <nav className="flex flex-wrap justify-start lg:justify-center gap-4">
+        {loadoutButtons.map((button) => (
+          <button
+            key={button.id}
+            type="button"
+            className="flex gap-2 items-center group"
+            onClick={() => handleTabChange(button.id)}
+          >
+            <Image
+              src={button.icon}
+              alt={button.name}
+              className="max-w-[50px]"
+            />
+            <span
+              className={`decoration-2 underline-offset-[6px] ${
+                button.id == tabIndex ? 'underline' : ''
+              } group-hover:underline`}
+            >
+              {button.name}
+            </span>
+          </button>
+        ))}
+      </nav>
+      <Separator />
+      <section className={`${tabIndex == 0 ? 'contents' : 'hidden'}`}>
         <CharmContainer />
       </section>
-      <NailContainer updateNail={updateNail} />
-      <section>
-        <Separator />
-        <h1 className="h-min p-8 text-center">Spells</h1>
-        <div id="spell-container" className="grid grid-cols-3 justify-evenly">
+      <section className={`${tabIndex == 2 ? 'contents' : 'hidden'}`}>
+        <NailContainer updateNail={updateNail} />
+      </section>
+      <section className={`${tabIndex == 1 ? 'contents' : 'hidden'}`}>
+        <div id="spell-container" className="flex flex-col 2xl:flex-row gap-4">
           <SpellContainer
             title={currentFireball}
             spells={fireball}
@@ -141,6 +182,6 @@ export default function LoadoutContainer({
           />
         </div>
       </section>
-    </>
+    </section>
   );
 }

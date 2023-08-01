@@ -122,81 +122,13 @@ export default function CharmContainer() {
     return charmNotches;
   }
 
-  function renderCharmSelection() {
-    let numCharmsInRow = 10;
-    let charmRows = [];
-
-    for (let i = 0; i < charms.length; i += numCharmsInRow) {
-      charmRows.push(charms.slice(i, i + numCharmsInRow));
-    }
-
-    return (
-      <div
-        id="charm-container"
-        className="flex flex-wrap items-center md:w-[50rem] mx-auto"
-      >
-        {charmRows.map((charms, index) => (
-          <div
-            key={index}
-            className={`charm-row flex gap-2 flex-wrap ${
-              index % 2 == 0 ? 'md:mr-10' : 'md:ml-10'
-            }`}
-          >
-            {charms.map((charm, charmIndex) => (
-              <button
-                key={charmIndex}
-                type="button"
-                onClick={() => {
-                  if (charm.isEquipped) {
-                    unequipCharm(charm.name);
-                    toggleCharmActive(charm.name);
-                    handleGrimmTrinketToggle(charm);
-                  } else if (notches.active < notches.max) {
-                    if (
-                      isCarefreeMelodyEquipped &&
-                      charm.name == 'Grimmchild'
-                    ) {
-                    } else if (
-                      isGrimmchildEquipped &&
-                      charm.name == 'Carefree Melody'
-                    ) {
-                    } else {
-                      equipCharm(charm.name);
-                      toggleCharmActive(charm.name);
-                      handleGrimmTrinketToggle(charm);
-                    }
-                  }
-                }}
-              >
-                <Image
-                  src={charm.image}
-                  alt={charm.name}
-                  className={`max-w-[70px] w-auto ${
-                    charm.isEquipped ? 'opacity-20 glow' : 'opacity-100'
-                  } ${
-                    charm.name == 'Carefree Melody' && isGrimmchildEquipped
-                      ? 'opacity-20 cursor-not-allowed'
-                      : ''
-                  }${
-                    charm.name == 'Grimmchild' && isCarefreeMelodyEquipped
-                      ? 'opacity-20 cursor-not-allowed'
-                      : ''
-                  }`}
-                />
-              </button>
-            ))}
-          </div>
-        ))}
-      </div>
-    );
-  }
   return (
     <>
       <div id="equipped-charms">
         <h2 className={notches.active > notches.max ? 'text-[#e676cf]' : ''}>
           {notches.active > notches.max ? 'OVERCHARMED' : 'Equipped'}
         </h2>
-        <div className="flex flex-wrap py-4 items-center gap-4 [&>*]:mr-[10px] relative">
+        <div className="flex flex-wrap py-4 items-center gap-4 gap-y-2 [&>*]:mr-[10px] relative">
           {notches.active > notches.max && (
             <Image
               src={overcharmedBackboard}
@@ -240,7 +172,51 @@ export default function CharmContainer() {
         <div className="flex flex-wrap gap-2">{renderCharmNotches()}</div>
       </div>
       <Separator />
-      {renderCharmSelection()}
+      <div
+        id="charm-container"
+        className="max-w-[40rem] mx-auto flex flex-wrap items-center justify-center gap-2"
+      >
+        {charms.map((charm, charmIndex) => (
+          <button
+            key={charmIndex}
+            type="button"
+            onClick={() => {
+              if (charm.isEquipped) {
+                unequipCharm(charm.name);
+                toggleCharmActive(charm.name);
+                handleGrimmTrinketToggle(charm);
+              } else if (notches.active < notches.max) {
+                if (isCarefreeMelodyEquipped && charm.name == 'Grimmchild') {
+                } else if (
+                  isGrimmchildEquipped &&
+                  charm.name == 'Carefree Melody'
+                ) {
+                } else {
+                  equipCharm(charm.name);
+                  toggleCharmActive(charm.name);
+                  handleGrimmTrinketToggle(charm);
+                }
+              }
+            }}
+          >
+            <Image
+              src={charm.image}
+              alt={charm.name}
+              className={`max-w-[60px] w-auto ${
+                charm.isEquipped ? 'opacity-20 glow' : 'opacity-100'
+              } ${
+                charm.name == 'Carefree Melody' && isGrimmchildEquipped
+                  ? 'opacity-20 cursor-not-allowed'
+                  : ''
+              }${
+                charm.name == 'Grimmchild' && isCarefreeMelodyEquipped
+                  ? 'opacity-20 cursor-not-allowed'
+                  : ''
+              }`}
+            />
+          </button>
+        ))}
+      </div>
     </>
   );
 }

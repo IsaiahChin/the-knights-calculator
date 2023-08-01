@@ -61,8 +61,8 @@ export default function NailContainer({
   }
 
   return (
-    <section className="w-auto p-4">
-      <h1 className="pb-4">{currentNail}</h1>
+    <>
+      <h2 className="w-max mx-auto pb-4">{currentNail}</h2>
       <div
         id="nail-container"
         className="flex flex-wrap gap-x-16 px-12 justify-evenly"
@@ -83,6 +83,6 @@ export default function NailContainer({
           );
         })}
       </div>
-    </section>
+    </>
   );
 }

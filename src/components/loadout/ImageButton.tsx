@@ -31,7 +31,9 @@ export default function ImageButton({
       )}
       <button
         type="button"
-        className="relative z-10 max-w-[50px]"
+        className={`relative z-10 lg:max-w-[50px] ${
+          nailDamage != undefined ? 'max-w-[30px]' : 'max-w-[50px]'
+        } `}
         onClick={() => {
           onClickFunction?.(index);
           if (nailDamage != undefined) {
