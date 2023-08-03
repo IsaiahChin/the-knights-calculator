@@ -35,7 +35,7 @@ export default function RootLayout({
         className={`${robotoSlab.className} overflow-x-hidden m-0 min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
       >
         <Header />
-        <main className="w-10/12 mx-auto h-auto min-h-screen relative mt-2">
+        <main className="w-full px-2 md:p-0 md:w-11/12 mx-auto h-auto relative mb-4">
           {children}
         </main>
       </body>
