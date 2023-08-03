@@ -20,6 +20,7 @@ export default function LoadoutContainer({
 }: {
   updateNail?: (newDamage: number, newImage: StaticImageData) => void;
   updateSpell?: (
+    name: string,
     spellAlias: String,
     newDamage: number,
     icon: StaticImageData
@@ -128,7 +129,7 @@ export default function LoadoutContainer({
   }
 
   return (
-    <section className="w-3/6">
+    <section className="w-5/12">
       <Separator />
       <nav className="flex flex-wrap justify-start lg:justify-center gap-4">
         {loadoutButtons.map((button) => (
@@ -157,11 +158,11 @@ export default function LoadoutContainer({
       <section className={`${tabIndex == 0 ? 'contents' : 'hidden'}`}>
         <CharmContainer />
       </section>
-      <section className={`${tabIndex == 2 ? 'contents' : 'hidden'}`}>
-        <NailContainer updateNail={updateNail} />
-      </section>
       <section className={`${tabIndex == 1 ? 'contents' : 'hidden'}`}>
-        <div id="spell-container" className="flex flex-col 2xl:flex-row gap-4">
+        <div
+          id="spell-container"
+          className="flex flex-col justify-between gap-4"
+        >
           <SpellContainer
             title={currentFireball}
             spells={fireball}
@@ -181,6 +182,9 @@ export default function LoadoutContainer({
             updateSpell={updateSpell}
           />
         </div>
+      </section>
+      <section className={`${tabIndex == 2 ? 'contents' : 'hidden'}`}>
+        <NailContainer updateNail={updateNail} />
       </section>
     </section>
   );

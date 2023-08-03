@@ -29,18 +29,22 @@ export default function Home() {
     },
     spell: {
       fireball: {
+        name: spells[0].name,
         damage: spells[0].damage,
         icon: spells[0].icon,
       },
       dive: {
+        name: spells[2].name,
         damage: spells[2].damage,
         icon: spells[2].icon,
       },
       wraiths: {
+        name: spells[4].name,
         damage: spells[4].damage,
         icon: spells[4].icon,
       },
     },
+    charm: {},
   });
 
   /**
@@ -59,12 +63,13 @@ export default function Home() {
   }
 
   /**
-   * Updates `spell.damage` and `spell.icon` from loadout state
+   * Updates `spell` object from loadout state
    * @param spellAlias
    * @param newDamage
    * @param icon
    */
   function updateSpell(
+    name: string,
     spellAlias: String,
     newDamage: number,
     icon: StaticImageData
@@ -75,7 +80,7 @@ export default function Home() {
         spell: {
           ...loadout.spell,
           fireball: {
-            ...loadout.spell.fireball,
+            name: name,
             damage: newDamage,
             icon: icon,
           },
@@ -87,7 +92,7 @@ export default function Home() {
         spell: {
           ...loadout.spell,
           dive: {
-            ...loadout.spell.dive,
+            name: name,
             damage: newDamage,
             icon: icon,
           },
@@ -99,7 +104,7 @@ export default function Home() {
         spell: {
           ...loadout.spell,
           wraiths: {
-            ...loadout.spell.wraiths,
+            name: name,
             damage: newDamage,
             icon: icon,
           },
@@ -109,7 +114,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex gap-4 relative">
+    <div className="w-auto mx-auto flex gap-4 justify-center relative">
       <EnemyContainer />
       <StatContainer loadout={loadout} />
       <LoadoutContainer updateNail={updateNail} updateSpell={updateSpell} />

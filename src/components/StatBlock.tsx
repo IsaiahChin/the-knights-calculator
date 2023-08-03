@@ -1,20 +1,20 @@
 import Image, { StaticImageData } from 'next/image';
 
 interface Stats {
-  children?: any;
+  title?: any;
   icon?: StaticImageData;
   iconAlt?: string;
   value: String | number;
-  valueSize: String;
-  subValue: String;
+  valueSize?: String;
+  subValue?: String;
 }
 
 const StatBlock: React.FC<Stats> = ({
-  children,
+  title,
   icon,
   iconAlt,
   value,
-  valueSize,
+  valueSize = 'small',
   subValue,
 }) => {
   return (
@@ -23,18 +23,24 @@ const StatBlock: React.FC<Stats> = ({
         <Image src={icon} alt={iconAlt} className="max-w-[55px]" />
       )}
       <div>
-        {children}
+        <h4>{title}</h4>
         {valueSize == 'large' && (
-          <h1>
+          <h2>
             {value}
             <span className="uppercase text-xs"> {subValue}</span>
-          </h1>
+          </h2>
         )}
         {valueSize == 'medium' && (
           <h3>
             {value}
             <span className="uppercase text-xs"> {subValue}</span>
           </h3>
+        )}
+        {valueSize == 'small' && (
+          <p className="font-bold">
+            {value}
+            <span className="uppercase text-xs"> {subValue}</span>
+          </p>
         )}
       </div>
     </span>
