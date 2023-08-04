@@ -143,7 +143,7 @@ export default function LoadoutContainer({
             <Image
               src={button.icon}
               alt={button.name}
-              className="max-w-[40px] sm:max-w-[55px]"
+              className="max-w-[40px]"
             />
             <span
               className={`decoration-2 underline-offset-[6px] ${
