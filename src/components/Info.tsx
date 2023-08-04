@@ -33,7 +33,7 @@ export default function Info() {
       >
         <div
           id="center"
-          className="w-1/3 h-full flex flex-col text-center justify-center"
+          className="w-full h-full flex flex-col text-center justify-center"
         >
           <div id="info-box" className="flex flex-col items-center">
             <Image src={pauseTopFleur} alt="" className="max-w-[350px]" />
