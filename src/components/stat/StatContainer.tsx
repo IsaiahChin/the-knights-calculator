@@ -11,8 +11,8 @@ export default function StatContainer({ loadout }: { loadout: any }) {
       id="stats"
       className="w-full md:w-3/12 h-5/6 md:h-auto md:relative"
     >
-      <h1 className="w-full pb-1">Statistics</h1>
-      <Separator padding="3" />
+      <h1 className="w-full">Statistics</h1>
+      <Separator />
       <h2 className="pb-2">Nail</h2>
       <div className="flex flex-wrap gap-4">
         <StatBlock
