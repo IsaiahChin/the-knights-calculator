@@ -4,6 +4,7 @@ import StatBlock from '../StatBlock';
 
 import enemies from '@/data/enemies';
 import { TYPE } from '@/constants/enemy';
+import Separator from '../Separator';
 
 function toTitleCase(string: String) {
   var splitStr = string.toLowerCase().split(' ');
@@ -17,9 +18,10 @@ function toTitleCase(string: String) {
 
 export default function EnemyContainer() {
   return (
-    <section className="w-3/12">
-      <h2>Enemies</h2>
-      <div className="max-h-[85vh] overflow-y-auto flex flex-wrap items-center gap-4">
+    <section className="w-full md:w-3/12 h-3/12 md:h-auto">
+      <h1 className="w-full pb-1">Enemies</h1>
+      <Separator padding="3" />
+      <div className="max-h-[40vh] md:max-h-[85vh] overflow-y-auto flex flex-wrap items-center gap-4">
         {enemies.map(
           (enemy) =>
             enemy.type.includes(TYPE.BOSS) && (
@@ -29,7 +31,7 @@ export default function EnemyContainer() {
                   <Image
                     src={enemy.icon}
                     alt={enemy.name}
-                    className="icon-mask max-w-[60px]"
+                    className="icon-mask max-w-[45px] sm:max-w-[60px]"
                   />
                   <StatBlock
                     value={enemy.health.total}

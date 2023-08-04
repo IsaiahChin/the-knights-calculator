@@ -114,7 +114,7 @@ export default function Home() {
   }
 
   return (
-    <div className="w-auto mx-auto flex gap-4 justify-center relative">
+    <div className="w-auto mx-auto flex flex-col md:flex-row gap-y-10 md:gap-4 pb-8 justify-center">
       <EnemyContainer />
       <StatContainer loadout={loadout} />
       <LoadoutContainer updateNail={updateNail} updateSpell={updateSpell} />

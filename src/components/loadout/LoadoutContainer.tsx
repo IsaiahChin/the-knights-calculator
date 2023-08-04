@@ -129,9 +129,10 @@ export default function LoadoutContainer({
   }
 
   return (
-    <section className="w-5/12">
+    <section className="w-full md:w-5/12 h-3/12 md:h-auto">
+      <h1 className="w-full">Loadout</h1>
       <Separator />
-      <nav className="flex flex-wrap justify-start lg:justify-center gap-4">
+      <nav className="flex flex-wrap justify-center gap-4">
         {loadoutButtons.map((button) => (
           <button
             key={button.id}
@@ -142,7 +143,7 @@ export default function LoadoutContainer({
             <Image
               src={button.icon}
               alt={button.name}
-              className="max-w-[50px]"
+              className="max-w-[40px] sm:max-w-[55px]"
             />
             <span
               className={`decoration-2 underline-offset-[6px] ${

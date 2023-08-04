@@ -20,7 +20,7 @@ const StatBlock: React.FC<Stats> = ({
   return (
     <span className="stat flex items-center gap-2">
       {icon != undefined && iconAlt != undefined && (
-        <Image src={icon} alt={iconAlt} className="max-w-[55px]" />
+        <Image src={icon} alt={iconAlt} className="max-w-[40px] sm:max-w-[55px]" />
       )}
       <div>
         <h4>{title}</h4>

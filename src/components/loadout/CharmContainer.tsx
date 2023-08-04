@@ -139,7 +139,7 @@ export default function CharmContainer() {
           <Image
             src={voidHeartCharm}
             alt="Void Heart"
-            className="max-w-[70px] relative z-20"
+            className="max-w-[55px] sm:max-w-[70px] relative z-20"
           />
           {equippedCharms.map((charm, index) => (
             <button
@@ -154,7 +154,7 @@ export default function CharmContainer() {
               <Image
                 src={charm.image}
                 alt={charm.name}
-                className="relative max-w-[70px] z-20"
+                className="relative max-w-[55px] sm:max-w-[70px] z-20"
               />
             </button>
           ))}

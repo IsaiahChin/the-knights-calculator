@@ -32,10 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-zinc-950 text-zinc-100">
       <body
-        className={`${robotoSlab.className} overflow-x-hidden m-0 min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
+        className={`${robotoSlab.className} overflow-x-hidden relative m-0 min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
       >
         <Header />
-        <main className="w-full px-2 md:p-0 md:w-11/12 mx-auto h-auto relative mb-4">
+        <main className="flex flex-col md:contents w-full md:w-11/12 h-auto md:h-[11/12] px-4 md:p-0 mx-auto relative mb-4">
           {children}
         </main>
       </body>
