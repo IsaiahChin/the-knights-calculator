@@ -7,9 +7,9 @@ import StatContainer from '@/components/stat/StatContainer';
 import EnemyContainer from '@/components/enemy/EnemyContainer';
 import LoadoutContainer from '@/components/loadout/LoadoutContainer';
 
-import { oldNail } from '@/assets/ui/loadout/nail';
 import knight from '@/data/knight';
 import spells from '@/constants/spells';
+import nails from '@/constants/nails';
 
 export default function Home() {
   const [loadout, setLoadout] = useState({
@@ -18,9 +18,10 @@ export default function Home() {
       min: knight.health.min,
     },
     nail: {
-      damage: knight.nail.damage[0],
+      name: nails[0].name,
+      damage: nails[0].damage,
       swingRate: knight.nail.rate,
-      image: oldNail,
+      image: nails[0].image,
     },
     soul: {
       max: knight.soul.max,
@@ -48,14 +49,19 @@ export default function Home() {
   });
 
   /**
-   * Updates `nail.damage` and `nail.image` from loadout state
+   * Updates `nail.name`, `nail.damage` and `nail.image` from loadout state
    * @param newDamage
    */
-  function updateNail(newDamage: number, newImage: StaticImageData) {
+  function updateNail(
+    newName: string,
+    newDamage: number,
+    newImage: StaticImageData
+  ) {
     setLoadout({
       ...loadout,
       nail: {
         ...loadout.nail,
+        name: newName,
         damage: newDamage,
         image: newImage,
       },

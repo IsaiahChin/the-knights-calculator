@@ -21,7 +21,7 @@ export default function StatContainer({ loadout }: { loadout: any }) {
           valueSize="large"
         />
         <StatBlock
-          title="Nail"
+          title={loadout.nail.name}
           value={loadout.nail.damage}
           valueSize="medium"
           subValue="dmg"

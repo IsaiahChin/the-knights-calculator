@@ -18,7 +18,11 @@ export default function LoadoutContainer({
   updateNail,
   updateSpell,
 }: {
-  updateNail?: (newDamage: number, newImage: StaticImageData) => void;
+  updateNail?: (
+    newName: string,
+    newDamage: number,
+    newImage: StaticImageData
+  ) => void;
   updateSpell?: (
     name: string,
     spellAlias: String,

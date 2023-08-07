@@ -4,45 +4,47 @@ import { useState } from 'react';
 import { StaticImageData } from 'next/image';
 
 import ImageButton from './ImageButton';
-import Separator from '../Separator';
 
-import knight from '@/data/knight';
-import * as NailAssets from '@/assets/ui/loadout/nail';
+import NAILS from '@/constants/nails';
 
 export default function NailContainer({
   updateNail,
 }: {
-  updateNail?: (newDamage: number, newImage: StaticImageData) => void;
+  updateNail?: (
+    newName: string,
+    newDamage: number,
+    newImage: StaticImageData
+  ) => void;
 }) {
   const [nails, setNails] = useState([
     {
-      name: 'Old Nail',
-      damage: knight.nail.damage[0],
-      image: NailAssets.oldNail,
+      name: NAILS[0].name,
+      damage: NAILS[0].damage,
+      image: NAILS[0].image,
       selected: true,
     },
     {
-      name: 'Sharpened Nail',
-      damage: knight.nail.damage[1],
-      image: NailAssets.sharpenedNail,
+      name: NAILS[1].name,
+      damage: NAILS[1].damage,
+      image: NAILS[1].image,
       selected: false,
     },
     {
-      name: 'Channelled Nail',
-      damage: knight.nail.damage[2],
-      image: NailAssets.channelledNail,
+      name: NAILS[2].name,
+      damage: NAILS[2].damage,
+      image: NAILS[2].image,
       selected: false,
     },
     {
-      name: 'Coiled Nail',
-      damage: knight.nail.damage[3],
-      image: NailAssets.coiledNail,
+      name: NAILS[3].name,
+      damage: NAILS[3].damage,
+      image: NAILS[3].image,
       selected: false,
     },
     {
-      name: 'Pure Nail',
-      damage: knight.nail.damage[4],
-      image: NailAssets.pureNail,
+      name: NAILS[4].name,
+      damage: NAILS[4].damage,
+      image: NAILS[4].image,
       selected: false,
     },
   ]);
