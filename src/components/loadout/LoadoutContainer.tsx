@@ -134,9 +134,12 @@ export default function LoadoutContainer({
 
   return (
     <section className="w-full md:w-5/12 h-3/12 md:h-auto">
-      <h1 className="w-full">Loadout</h1>
+      <h1 id="loadout" className="w-full scroll-m-24">Loadout</h1>
       <Separator />
-      <nav className="flex flex-wrap justify-center gap-4">
+      <nav
+        className="flex flex-wrap justify-center gap-4"
+        aria-label="Loadout Menu"
+      >
         {loadoutButtons.map((button) => (
           <button
             key={button.id}

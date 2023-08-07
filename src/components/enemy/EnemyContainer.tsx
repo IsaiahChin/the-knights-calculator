@@ -19,7 +19,7 @@ function toTitleCase(string: String) {
 export default function EnemyContainer() {
   return (
     <section className="w-full md:w-3/12 h-3/12 md:h-auto">
-      <h1 className="w-full">Enemies</h1>
+      <h1 id="enemies" className="w-full scroll-m-24">Enemies</h1>
       <Separator />
       <div className="max-h-[40vh] md:max-h-[85vh] overflow-y-auto flex flex-wrap items-center gap-4">
         {enemies.map(
