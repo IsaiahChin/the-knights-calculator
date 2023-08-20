@@ -1,4 +1,6 @@
 import bottomFleur from './bottom-fleur.png';
 import pauseTopFleur from './pause-top-fleur.png';
 
-export { bottomFleur, pauseTopFleur };
+const Fluers = { bottomFleur, pauseTopFleur };
+
+export default Fluers;

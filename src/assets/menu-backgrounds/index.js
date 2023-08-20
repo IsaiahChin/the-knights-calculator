@@ -10,7 +10,7 @@ import theGrimmTroupeBg from './the-grimm-troupe.png';
 import voidBg from './void.png';
 import voidheartBg from './voidheart.png';
 
-export {
+const MenuBackgrounds = {
   classicBg,
   godmasterBg,
   hiddenDreamsBg,
@@ -23,3 +23,5 @@ export {
   voidBg,
   voidheartBg,
 };
+
+export default MenuBackgrounds;

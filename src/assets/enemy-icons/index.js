@@ -158,7 +158,7 @@ import wingmould from './wingmould.png';
 import xero from './xero.png';
 import zoteTheMighty from './zote-the-mighty.png';
 
-export {
+const EnemyIcons = {
   aluba,
   ambloom,
   armouredSquit,
@@ -319,3 +319,5 @@ export {
   xero,
   zoteTheMighty,
 };
+
+export default EnemyIcons;

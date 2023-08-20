@@ -5,13 +5,7 @@ import Image, { StaticImageData } from 'next/image';
 
 import Separator from '../Separator';
 
-import {
-  overcharmedBackboard,
-  charmNotch,
-  notchUnlit,
-  notchLit,
-  notchOvercharm,
-} from '@/assets/ui/loadout/charm-ui/';
+import CharmUIAssets from '@/assets/ui/loadout/charm-ui/';
 import voidHeartCharm from '@/assets/ui/loadout/charm/40b-void-heart.png';
 
 import CHARMS from '@/constants/charms';
@@ -98,7 +92,11 @@ export default function CharmContainer({
         charmNotches.push(
           <Image
             key={i}
-            src={i < notches.active ? notchLit : notchUnlit}
+            src={
+              i < notches.active
+                ? CharmUIAssets.notchLit
+                : CharmUIAssets.notchUnlit
+            }
             alt={i < notches.active ? 'Lit' : '' + ' Charm Notch'}
             className="max-w-[35px]"
           />
@@ -110,14 +108,18 @@ export default function CharmContainer({
           i < notches.max ? (
             <Image
               key={i}
-              src={i < notches.active ? notchLit : notchUnlit}
+              src={
+                i < notches.active
+                  ? CharmUIAssets.notchLit
+                  : CharmUIAssets.notchUnlit
+              }
               alt={i < notches.active ? 'Lit' : '' + ' Charm Notch'}
               className="max-w-[35px]"
             />
           ) : (
             <Image
               key={i}
-              src={notchOvercharm}
+              src={CharmUIAssets.notchOvercharm}
               alt="Overcharmed Notch"
               className="max-w-[35px]"
             />
@@ -137,7 +139,7 @@ export default function CharmContainer({
         <div className="flex flex-wrap py-4 items-center gap-4 gap-y-4 [&>*]:mr-[10px] relative">
           {notches.active > notches.max && (
             <Image
-              src={overcharmedBackboard}
+              src={CharmUIAssets.overcharmedBackboard}
               alt=""
               className="block md:hidden lg:block absolute z-10"
             />
@@ -166,7 +168,7 @@ export default function CharmContainer({
           ))}
           {notches.active < notches.max && (
             <Image
-              src={charmNotch}
+              src={CharmUIAssets.charmNotch}
               alt="Charm Notch"
               className="max-w-[30px]"
             />

@@ -4,10 +4,12 @@ import notchUnlit from './charm-cost-unlit.png';
 import notchLit from './charm-cost-lit.png';
 import notchOvercharm from './charm-cost-overcharm.png';
 
-export {
+const CharmUIAssets = {
   overcharmedBackboard,
   charmNotch,
   notchUnlit,
   notchLit,
   notchOvercharm,
 };
+
+export default CharmUIAssets;
