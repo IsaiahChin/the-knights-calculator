@@ -16,7 +16,20 @@ import voidHeartCharm from '@/assets/ui/loadout/charm/40b-void-heart.png';
 
 import CHARMS from '@/constants/charms';
 
-export default function CharmContainer() {
+export default function CharmContainer({
+  equippedCharms,
+  setEquippedCharms,
+}: {
+  equippedCharms: Array<{
+    name: string;
+    cost: number;
+    origin: string;
+    image: StaticImageData;
+    effect: any;
+    isEquipped: boolean;
+  }>;
+  setEquippedCharms: any;
+}) {
   const [notches, setNotches] = useState({
     max: 11,
     active: 0,
@@ -28,19 +41,10 @@ export default function CharmContainer() {
       cost: charm.cost,
       origin: charm.origin,
       image: charm.image,
+      effect: charm.effect,
       isEquipped: false,
     }))
   );
-
-  const [equippedCharms, setEquippedCharms] = useState<
-    Array<{
-      name: string;
-      cost: number;
-      origin: string;
-      image: StaticImageData;
-      isEquipped: boolean;
-    }>
-  >([]);
 
   const [isGrimmchildEquipped, setIsGrimmchildEquipped] = useState(false);
   const [isCarefreeMelodyEquipped, setIsCarefreeMelodyEquipped] =
@@ -68,13 +72,15 @@ export default function CharmContainer() {
   }
 
   function unequipCharm(name: String) {
-    let existingCharm = equippedCharms.find((charm) => charm.name == name);
+    let existingCharm = equippedCharms.find((charm: any) => charm.name == name);
     if (existingCharm != undefined) {
       setNotches({
         ...notches,
         active: notches.active - existingCharm.cost,
       });
-      setEquippedCharms(equippedCharms.filter((charm) => charm.name != name));
+      setEquippedCharms(
+        equippedCharms.filter((charm: any) => charm.name != name)
+      );
     }
   }
 
@@ -128,20 +134,20 @@ export default function CharmContainer() {
         <h2 className={notches.active > notches.max ? 'text-[#e676cf]' : ''}>
           {notches.active > notches.max ? 'OVERCHARMED' : 'Equipped'}
         </h2>
-        <div className="flex flex-wrap py-4 items-center gap-4 gap-y-2 [&>*]:mr-[10px] relative">
+        <div className="flex flex-wrap py-4 items-center gap-4 gap-y-4 [&>*]:mr-[10px] relative">
           {notches.active > notches.max && (
             <Image
               src={overcharmedBackboard}
               alt=""
-              className="hidden lg:block absolute z-10"
+              className="block md:hidden lg:block absolute z-10"
             />
           )}
           <Image
             src={voidHeartCharm}
             alt="Void Heart"
-            className="max-w-[55px] sm:max-w-[70px] relative z-20"
+            className="max-w-[47px] sm:max-w-[65px] relative z-20"
           />
-          {equippedCharms.map((charm, index) => (
+          {equippedCharms.map((charm: any, index: number) => (
             <button
               key={index}
               type="button"
@@ -154,7 +160,7 @@ export default function CharmContainer() {
               <Image
                 src={charm.image}
                 alt={charm.name}
-                className="relative max-w-[55px] sm:max-w-[70px] z-20"
+                className="relative max-w-[47px] sm:max-w-[65px] z-20"
               />
             </button>
           ))}

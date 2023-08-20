@@ -34,7 +34,7 @@ export default function SpellContainer({
                   updateSpell?.(
                     spell.name,
                     spell.alias,
-                    spell.damage,
+                    spell.damage.value * spell.damage.amount,
                     spell.image
                   )
                 }

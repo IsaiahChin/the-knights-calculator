@@ -17,18 +17,16 @@ import spells from '@/constants/spells';
 export default function LoadoutContainer({
   updateNail,
   updateSpell,
+  charmContainer,
 }: {
-  updateNail?: (
-    newName: string,
-    newDamage: number,
-    newImage: StaticImageData
-  ) => void;
+  updateNail?: (newName: string, newDamage: number) => void;
   updateSpell?: (
     name: string,
     spellAlias: String,
     newDamage: number,
     icon: StaticImageData
   ) => void;
+  charmContainer: any;
 }) {
   const [tabIndex, setTabIndex] = useState(0);
 
@@ -134,7 +132,9 @@ export default function LoadoutContainer({
 
   return (
     <section className="w-full md:w-5/12 h-3/12 md:h-auto">
-      <h1 id="loadout" className="w-full scroll-m-24">Loadout</h1>
+      <h1 id="loadout" className="w-full scroll-m-24">
+        Loadout
+      </h1>
       <Separator />
       <nav
         className="flex flex-wrap justify-center gap-4"
@@ -164,7 +164,7 @@ export default function LoadoutContainer({
       </nav>
       <Separator />
       <section className={`${tabIndex == 0 ? 'contents' : 'hidden'}`}>
-        <CharmContainer />
+        {charmContainer}
       </section>
       <section className={`${tabIndex == 1 ? 'contents' : 'hidden'}`}>
         <div

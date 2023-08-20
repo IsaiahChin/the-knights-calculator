@@ -6,6 +6,7 @@ import { StaticImageData } from 'next/image';
 import StatContainer from '@/components/stat/StatContainer';
 import EnemyContainer from '@/components/enemy/EnemyContainer';
 import LoadoutContainer from '@/components/loadout/LoadoutContainer';
+import CharmContainer from '@/components/loadout/CharmContainer';
 
 import knight from '@/data/knight';
 import spells from '@/constants/spells';
@@ -21,7 +22,6 @@ export default function Home() {
       name: nails[0].name,
       damage: nails[0].damage,
       swingRate: knight.nail.rate,
-      image: nails[0].image,
     },
     soul: {
       max: knight.soul.max,
@@ -31,39 +31,44 @@ export default function Home() {
     spell: {
       fireball: {
         name: spells[0].name,
-        damage: spells[0].damage,
+        damage: spells[0].damage.value * spells[0].damage.amount,
         icon: spells[0].icon,
       },
       dive: {
         name: spells[2].name,
-        damage: spells[2].damage,
+        damage: spells[2].damage.value * spells[2].damage.amount,
         icon: spells[2].icon,
       },
       wraiths: {
         name: spells[4].name,
-        damage: spells[4].damage,
+        damage: spells[4].damage.value * spells[4].damage.amount,
         icon: spells[4].icon,
       },
     },
-    charm: {},
   });
 
+  const [equippedCharms, setEquippedCharms] = useState<
+    Array<{
+      name: string;
+      cost: number;
+      origin: string;
+      image: StaticImageData;
+      effect: any;
+      isEquipped: boolean;
+    }>
+  >([]);
+
   /**
-   * Updates `nail.name`, `nail.damage` and `nail.image` from loadout state
+   * Updates `nail.name` and `nail.damage` from loadout state
    * @param newDamage
    */
-  function updateNail(
-    newName: string,
-    newDamage: number,
-    newImage: StaticImageData
-  ) {
+  function updateNail(newName: string, newDamage: number) {
     setLoadout({
       ...loadout,
       nail: {
         ...loadout.nail,
         name: newName,
         damage: newDamage,
-        image: newImage,
       },
     });
   }
@@ -120,10 +125,19 @@ export default function Home() {
   }
 
   return (
-    <div className="w-auto mx-auto flex flex-col md:flex-row gap-y-10 md:gap-4 pb-8 justify-center">
+    <div className="[&>section]:max-w-3xl w-auto mx-auto flex flex-col md:flex-row gap-y-10 md:gap-4 pb-8 justify-center">
       <EnemyContainer />
-      <StatContainer loadout={loadout} />
-      <LoadoutContainer updateNail={updateNail} updateSpell={updateSpell} />
+      <StatContainer loadout={loadout} equippedCharms={equippedCharms} />
+      <LoadoutContainer
+        updateNail={updateNail}
+        updateSpell={updateSpell}
+        charmContainer={
+          <CharmContainer
+            equippedCharms={equippedCharms}
+            setEquippedCharms={setEquippedCharms}
+          />
+        }
+      />
     </div>
   );
 }

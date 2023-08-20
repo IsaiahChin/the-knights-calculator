@@ -10,44 +10,16 @@ import NAILS from '@/constants/nails';
 export default function NailContainer({
   updateNail,
 }: {
-  updateNail?: (
-    newName: string,
-    newDamage: number,
-    newImage: StaticImageData
-  ) => void;
+  updateNail?: (newName: string, newDamage: number) => void;
 }) {
-  const [nails, setNails] = useState([
-    {
-      name: NAILS[0].name,
-      damage: NAILS[0].damage,
-      image: NAILS[0].image,
-      selected: true,
-    },
-    {
-      name: NAILS[1].name,
-      damage: NAILS[1].damage,
-      image: NAILS[1].image,
-      selected: false,
-    },
-    {
-      name: NAILS[2].name,
-      damage: NAILS[2].damage,
-      image: NAILS[2].image,
-      selected: false,
-    },
-    {
-      name: NAILS[3].name,
-      damage: NAILS[3].damage,
-      image: NAILS[3].image,
-      selected: false,
-    },
-    {
-      name: NAILS[4].name,
-      damage: NAILS[4].damage,
-      image: NAILS[4].image,
-      selected: false,
-    },
-  ]);
+  const [nails, setNails] = useState(
+    NAILS.map((nail, index) => ({
+      name: nail.name,
+      damage: nail.damage,
+      image: nail.image,
+      selected: index == 0,
+    }))
+  );
 
   const initialNail = nails.find((nail) => nail.selected);
   const [currentNail, setCurrentNail] = useState(initialNail?.name);

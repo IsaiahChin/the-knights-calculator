@@ -17,11 +17,7 @@ export default function ImageButton({
   index?: number;
   onClickFunction?: Function;
   nailDamage?: number;
-  updateNail?: (
-    newName: string,
-    newDamage: number,
-    newImage: StaticImageData
-  ) => void;
+  updateNail?: (newName: string, newDamage: number) => void;
   updateSpell?: Function;
 }) {
   return (
@@ -41,7 +37,7 @@ export default function ImageButton({
         onClick={() => {
           onClickFunction?.(index);
           if (nailDamage != undefined) {
-            updateNail?.(altText, nailDamage, image);
+            updateNail?.(altText, nailDamage);
           }
           updateSpell?.();
         }}
