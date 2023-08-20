@@ -11,14 +11,15 @@ export default function SpellContainer({
   spells: Array<Object>;
   handleSelection?: Function;
   updateSpell?: (
+    name: string,
     spellAlias: String,
     newDamage: number,
     icon: StaticImageData
   ) => void;
 }) {
   return (
-    <div className="flex flex-col items-center gap-8">
-      <h3>{title}</h3>
+    <div className="w-auto min-w-[12rem] flex flex-col items-center gap-8">
+      <h3 className="w-max">{title}</h3>
       <div className="flex flex-row gap-12">
         {spells.map((spell: any, index: any) => {
           return (
@@ -30,7 +31,12 @@ export default function SpellContainer({
                 index={index}
                 onClickFunction={handleSelection}
                 updateSpell={() =>
-                  updateSpell?.(spell.alias, spell.damage, spell.image)
+                  updateSpell?.(
+                    spell.name,
+                    spell.alias,
+                    spell.damage.value * spell.damage.amount,
+                    spell.image
+                  )
                 }
               />
             </div>

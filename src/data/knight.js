@@ -5,13 +5,6 @@ const knight = {
   },
   nail: {
     rate: 0.41,
-    damage: {
-      0: 5,
-      1: 9,
-      2: 13,
-      3: 17,
-      4: 21,
-    },
     soulRegen: 11,
   },
   soul: {

@@ -17,7 +17,7 @@ export default function ImageButton({
   index?: number;
   onClickFunction?: Function;
   nailDamage?: number;
-  updateNail?: (newDamage: number, newImage: StaticImageData) => void;
+  updateNail?: (newName: string, newDamage: number) => void;
   updateSpell?: Function;
 }) {
   return (
@@ -31,11 +31,13 @@ export default function ImageButton({
       )}
       <button
         type="button"
-        className="relative z-[2] max-w-[50px]"
+        className={`relative z-10 lg:max-w-[50px] ${
+          nailDamage != undefined ? 'max-w-[30px]' : 'max-w-[50px]'
+        } `}
         onClick={() => {
           onClickFunction?.(index);
           if (nailDamage != undefined) {
-            updateNail?.(nailDamage, image);
+            updateNail?.(altText, nailDamage);
           }
           updateSpell?.();
         }}

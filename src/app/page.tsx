@@ -1,27 +1,27 @@
 'use client';
 
 import { useState } from 'react';
+import { StaticImageData } from 'next/image';
 
-import Image, { StaticImageData } from 'next/image';
-import StatContainer from '@/components/StatContainer';
+import StatContainer from '@/components/stat/StatContainer';
+import EnemyContainer from '@/components/enemy/EnemyContainer';
 import LoadoutContainer from '@/components/loadout/LoadoutContainer';
+import CharmContainer from '@/components/loadout/CharmContainer';
 
-import { creditsFleur } from '@/assets/ui/fleur';
-import { oldNail } from '@/assets/ui/loadout/nail';
 import knight from '@/data/knight';
 import spells from '@/constants/spells';
+import nails from '@/constants/nails';
 
 export default function Home() {
-  const [tabIndex, setTabIndex] = useState(0);
   const [loadout, setLoadout] = useState({
     health: {
       max: knight.health.max,
       min: knight.health.min,
     },
     nail: {
-      damage: knight.nail.damage[0],
+      name: nails[0].name,
+      damage: nails[0].damage,
       swingRate: knight.nail.rate,
-      image: oldNail,
     },
     soul: {
       max: knight.soul.max,
@@ -30,51 +30,57 @@ export default function Home() {
     },
     spell: {
       fireball: {
-        damage: spells[0].damage,
+        name: spells[0].name,
+        damage: spells[0].damage.value * spells[0].damage.amount,
         icon: spells[0].icon,
       },
       dive: {
-        damage: spells[2].damage,
+        name: spells[2].name,
+        damage: spells[2].damage.value * spells[2].damage.amount,
         icon: spells[2].icon,
       },
       wraiths: {
-        damage: spells[4].damage,
+        name: spells[4].name,
+        damage: spells[4].damage.value * spells[4].damage.amount,
         icon: spells[4].icon,
       },
     },
   });
 
-  const navLinks = [
-    { index: 0, title: 'Inventory' },
-    { index: 1, title: 'Enemies' },
-  ];
-
-  function handleTabChange(index: number) {
-    setTabIndex(index);
-  }
+  const [equippedCharms, setEquippedCharms] = useState<
+    Array<{
+      name: string;
+      cost: number;
+      origin: string;
+      image: StaticImageData;
+      effect: any;
+      isEquipped: boolean;
+    }>
+  >([]);
 
   /**
-   * Updates `nail.damage` and `nail.image` from loadout state
+   * Updates `nail.name` and `nail.damage` from loadout state
    * @param newDamage
    */
-  function updateNail(newDamage: number, newImage: StaticImageData) {
+  function updateNail(newName: string, newDamage: number) {
     setLoadout({
       ...loadout,
       nail: {
         ...loadout.nail,
+        name: newName,
         damage: newDamage,
-        image: newImage,
       },
     });
   }
 
   /**
-   * Updates `spell.damage` and `spell.icon` from loadout state
+   * Updates `spell` object from loadout state
    * @param spellAlias
    * @param newDamage
    * @param icon
    */
   function updateSpell(
+    name: string,
     spellAlias: String,
     newDamage: number,
     icon: StaticImageData
@@ -85,7 +91,7 @@ export default function Home() {
         spell: {
           ...loadout.spell,
           fireball: {
-            ...loadout.spell.fireball,
+            name: name,
             damage: newDamage,
             icon: icon,
           },
@@ -97,7 +103,7 @@ export default function Home() {
         spell: {
           ...loadout.spell,
           dive: {
-            ...loadout.spell.dive,
+            name: name,
             damage: newDamage,
             icon: icon,
           },
@@ -109,7 +115,7 @@ export default function Home() {
         spell: {
           ...loadout.spell,
           wraiths: {
-            ...loadout.spell.wraiths,
+            name: name,
             damage: newDamage,
             icon: icon,
           },
@@ -119,43 +125,19 @@ export default function Home() {
   }
 
   return (
-    <>
-      <section className="w-2/5 h-auto p-4">
-        <h1 className="text-center py-3">The Knight's Calculator</h1>
-        <Image src={creditsFleur} alt="" className="m-[0_auto] mt-4" />
-        <StatContainer loadout={loadout} />
-      </section>
-      <section className="w-3/5 h-auto p-4">
-        <nav className="w-full px-3 p-4 flex items-center justify-center">
-          <ul className="inline-flex justify-center gap-4">
-            {navLinks.map((link) => (
-              <li key={link.index}>
-                <button
-                  type="button"
-                  onClick={() => handleTabChange(link.index)}
-                  className={`${
-                    tabIndex == link.index && 'underline'
-                  } underline-offset-8 decoration-white decoration-2 hover:underline`}
-                >
-                  {link.title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <Image
-          src={creditsFleur}
-          alt=""
-          className="m-[0_auto] max-w-[80%] mt-4"
-        />
-        <div className={`${tabIndex == 0 ? 'block' : 'hidden'}`}>
-          <LoadoutContainer updateNail={updateNail} updateSpell={updateSpell} />
-        </div>
-        <div className={`${tabIndex == 1 ? 'block' : 'hidden'} text-center`}>
-          <h1 className="h-min p-8">Enemies</h1>
-          <p>Coming soon...</p>
-        </div>
-      </section>
-    </>
+    <div className="[&>section]:max-w-3xl w-auto mx-auto flex flex-col md:flex-row gap-y-10 md:gap-4 pb-8 justify-center">
+      <EnemyContainer />
+      <StatContainer loadout={loadout} equippedCharms={equippedCharms} />
+      <LoadoutContainer
+        updateNail={updateNail}
+        updateSpell={updateSpell}
+        charmContainer={
+          <CharmContainer
+            equippedCharms={equippedCharms}
+            setEquippedCharms={setEquippedCharms}
+          />
+        }
+      />
+    </div>
   );
 }

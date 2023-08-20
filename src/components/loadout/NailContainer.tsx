@@ -5,46 +5,21 @@ import { StaticImageData } from 'next/image';
 
 import ImageButton from './ImageButton';
 
-import knight from '@/data/knight';
-import * as NailAssets from '@/assets/ui/loadout/nail';
+import NAILS from '@/constants/nails';
 
 export default function NailContainer({
   updateNail,
 }: {
-  updateNail?: (newDamage: number, newImage: StaticImageData) => void;
+  updateNail?: (newName: string, newDamage: number) => void;
 }) {
-  const [nails, setNails] = useState([
-    {
-      name: 'Old Nail',
-      damage: knight.nail.damage[0],
-      image: NailAssets.oldNail,
-      selected: true,
-    },
-    {
-      name: 'Sharpened Nail',
-      damage: knight.nail.damage[1],
-      image: NailAssets.sharpenedNail,
-      selected: false,
-    },
-    {
-      name: 'Channelled Nail',
-      damage: knight.nail.damage[2],
-      image: NailAssets.channelledNail,
-      selected: false,
-    },
-    {
-      name: 'Coiled Nail',
-      damage: knight.nail.damage[3],
-      image: NailAssets.coiledNail,
-      selected: false,
-    },
-    {
-      name: 'Pure Nail',
-      damage: knight.nail.damage[4],
-      image: NailAssets.pureNail,
-      selected: false,
-    },
-  ]);
+  const [nails, setNails] = useState(
+    NAILS.map((nail, index) => ({
+      name: nail.name,
+      damage: nail.damage,
+      image: nail.image,
+      selected: index == 0,
+    }))
+  );
 
   const initialNail = nails.find((nail) => nail.selected);
   const [currentNail, setCurrentNail] = useState(initialNail?.name);
@@ -60,9 +35,12 @@ export default function NailContainer({
   }
 
   return (
-    <section>
-      <h1 className="h-min p-8 text-center">{currentNail}</h1>
-      <div id="nail-container" className="flex flex-wrap justify-evenly gap-4">
+    <>
+      <h2 className="w-max mx-auto pb-4">{currentNail}</h2>
+      <div
+        id="nail-container"
+        className="flex flex-wrap gap-x-16 px-12 justify-evenly"
+      >
         {nails.map((nail: any, index: number) => {
           return (
             <div className="flex flex-col items-center gap-4" key={nail.name}>
@@ -79,6 +57,6 @@ export default function NailContainer({
           );
         })}
       </div>
-    </section>
+    </>
   );
 }
