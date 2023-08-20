@@ -44,7 +44,7 @@ import grimmchild from './39b-grimmchild.png';
 import kingsoul from './40a-kingsoul.png';
 import voidHeart from './40b-void-heart.png';
 
-export {
+const CharmIcons = {
   waywardCompass,
   gatheringSwarm,
   stalwartShell,
@@ -91,3 +91,5 @@ export {
   kingsoul,
   voidHeart,
 };
+
+export default CharmIcons;

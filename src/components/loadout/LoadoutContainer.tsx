@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 
-import CharmContainer from './CharmContainer';
 import NailContainer from './NailContainer';
 import SpellContainer from './SpellContainer';
 import Separator from '../Separator';

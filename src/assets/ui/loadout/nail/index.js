@@ -4,4 +4,12 @@ import channelledNail from './3-channelled-nail.png';
 import coiledNail from './4-coiled-nail.png';
 import pureNail from './5-pure-nail.png';
 
-export { oldNail, sharpenedNail, channelledNail, coiledNail, pureNail };
+const NailAssets = {
+  oldNail,
+  sharpenedNail,
+  channelledNail,
+  coiledNail,
+  pureNail,
+};
+
+export default NailAssets;

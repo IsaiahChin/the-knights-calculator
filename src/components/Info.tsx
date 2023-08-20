@@ -7,7 +7,7 @@ import Link from 'next/link';
 import InfoIcon from '@/assets/meta/InfoIcon';
 import CloseIcon from '@/assets/meta/CloseIcon';
 import GithubIcon from '@/assets/meta/GithubIcon';
-import { pauseTopFleur, bottomFleur } from '@/assets/ui/fleur';
+import Fluers from '@/assets/ui/fleur';
 
 export default function Info() {
   const [isInfoShowing, setIsInfoShowing] = useState(false);
@@ -36,8 +36,12 @@ export default function Info() {
           className="w-full h-full flex flex-col text-center justify-center"
         >
           <div id="info-box" className="flex flex-col items-center">
-            <Image src={pauseTopFleur} alt="" className="max-w-[350px]" />
-            <h1 className="w-max my-4">The Knight's Calculator</h1>
+            <Image
+              src={Fluers.pauseTopFleur}
+              alt=""
+              className="max-w-[350px]"
+            />
+            <h1 className="w-max my-4">The Knight&apos;s Calculator</h1>
             <p className="w-max h-32">
               A damage analysis tool for Hollow Knight
             </p>
@@ -64,7 +68,11 @@ export default function Info() {
               </Link>
               .
             </p>
-            <Image src={bottomFleur} alt="" className="max-w-[250px] mt-4" />
+            <Image
+              src={Fluers.bottomFleur}
+              alt=""
+              className="max-w-[250px] mt-4"
+            />
           </div>
         </div>
       </div>
