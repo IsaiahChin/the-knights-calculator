@@ -1,15 +1,15 @@
-import NailartIcons from '@/assets/ui/loadout/nailart';
+import NailArtIcons from '@/assets/ui/loadout/nailart';
 
 const NAILART = [
   {
     name: 'great',
     damageMod: 2.5,
-    icon: NailartIcons.greatSlash,
+    icon: NailArtIcons.greatSlash,
   },
   {
     name: 'dash',
     damageMod: 4.375,
-    icon: NailartIcons.dashSlash,
+    icon: NailArtIcons.dashSlash,
   },
   {
     name: 'cyclone',
@@ -18,7 +18,7 @@ const NAILART = [
       min: 3,
       max: 6,
     },
-    icon: NailartIcons.cycloneSlash,
+    icon: NailArtIcons.cycloneSlash,
   },
 ];
 

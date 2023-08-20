@@ -3,7 +3,7 @@ import Image from 'next/image';
 import StatBlock from '../StatBlock';
 
 import enemies from '@/data/enemies';
-import { TYPE } from '@/constants/enemy';
+import ENEMYTYPES from '@/constants/enemy';
 import Separator from '../Separator';
 
 function toTitleCase(string: String) {
@@ -19,12 +19,14 @@ function toTitleCase(string: String) {
 export default function EnemyContainer() {
   return (
     <section className="w-full md:w-3/12 h-3/12 md:h-auto">
-      <h1 id="enemies" className="w-full scroll-m-24">Enemies</h1>
+      <h1 id="enemies" className="w-full scroll-m-24">
+        Enemies
+      </h1>
       <Separator />
       <div className="max-h-[40vh] md:max-h-[85vh] overflow-y-auto flex flex-wrap items-center gap-4">
         {enemies.map(
           (enemy) =>
-            enemy.type.includes(TYPE.BOSS) && (
+            enemy.type.includes(ENEMYTYPES.BOSS) && (
               <div className="w-36" key={enemy.name}>
                 <h4>{toTitleCase(enemy.name)}</h4>
                 <div className="enemy flex items-center gap-2">

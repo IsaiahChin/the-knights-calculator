@@ -12,7 +12,7 @@ import flukelingDung from './flukeling-dung.png';
 import grimmChild from './grimmchild.png';
 import weaverling from './weaverling.png';
 
-export default {
+const SpellIcons = {
   fireball,
   fireballUpgrade,
   wraiths,
@@ -27,3 +27,5 @@ export default {
   grimmChild,
   weaverling,
 };
+
+export default SpellIcons;

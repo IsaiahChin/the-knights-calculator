@@ -1,4 +1,4 @@
-import * as NailAssets from '../assets/ui/loadout/nail';
+import NailAssets from '../assets/ui/loadout/nail';
 
 const nails = [
   {

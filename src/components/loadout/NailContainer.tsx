@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { StaticImageData } from 'next/image';
 
 import ImageButton from './ImageButton';
 
