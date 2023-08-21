@@ -31,6 +31,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-zinc-950 text-zinc-100">
+      <head>
+        <link rel="icon" type="image/x-icon" href="/favicon-32x32.png" />
+      </head>
       <body
         className={`${robotoSlab.className} overflow-x-hidden relative m-0 min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
       >
