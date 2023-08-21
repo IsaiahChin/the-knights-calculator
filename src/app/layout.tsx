@@ -19,8 +19,15 @@ export const metadata: Metadata = {
   },
   icons: [
     { rel: 'apple-touch-icon', url: '/favicon-32x32.png' },
-    { rel: 'icon', url: '/favicon-32x32.png' },
+    { rel: 'icon', url: '/favicon.ico' },
   ],
+  openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    url: 'https://isaiahchin.github.io/the-knights-calculator/',
+    title: `The Knight's Calculator`,
+    description: 'A Hollow Knight damage analysis tool',
+  },
   viewport: 'width=device-width, initial-scale=1',
 };
 
@@ -32,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-zinc-950 text-zinc-100">
       <head>
-        <link rel="icon" type="image/x-icon" href="/favicon-32x32.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
         className={`${robotoSlab.className} overflow-x-hidden relative m-0 min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
