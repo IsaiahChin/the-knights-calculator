@@ -28,8 +28,8 @@ export default function Info() {
       <div
         id="info-overlay"
         className={`${
-          isInfoShowing ? 'block' : 'hidden'
-        } fixed top-0 left-0 z-[90] w-screen h-screen bg-black bg-opacity-95 flex justify-center items-center`}
+          isInfoShowing ? 'flex' : 'hidden'
+        } fixed top-0 left-0 z-[90] w-screen h-screen bg-black bg-opacity-95 justify-center items-center`}
       >
         <div
           id="center"
