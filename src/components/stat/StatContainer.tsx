@@ -378,7 +378,7 @@ export default function StatContainer({
             valueSize="large"
           />
         </span>
-        <div className="w-full flex flex-row flex-wrap justify-between md:justify-normal gap-4">
+        <div className="w-full flex flex-row flex-wrap justify-normal md:justify-between gap-4">
           <div className="flex flex-col gap-y-4">
             {renderFireball()}
             {Object.values(
