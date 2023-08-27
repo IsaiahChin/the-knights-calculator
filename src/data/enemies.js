@@ -579,7 +579,7 @@ const enemies = [
     image: EnemyAssets.lesserMawlek,
   },
   {
-    name: 'lifseed',
+    name: 'lifeseed',
     health: { total: 1 },
     origin: CONTENTPACKS.MAIN,
     type: ENEMYTYPES.STANDARD,
