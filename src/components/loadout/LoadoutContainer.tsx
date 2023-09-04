@@ -131,7 +131,7 @@ export default function LoadoutContainer({
 
   return (
     <section className="w-full md:w-5/12 h-5/6 md:h-auto">
-      <h1 id="loadout" className="w-full scroll-m-24">
+      <h1 id="loadout" className="w-full scroll-m-32">
         Loadout
       </h1>
       <nav className="flex flex-wrap gap-2 mt-4" aria-label="Loadout Menu">

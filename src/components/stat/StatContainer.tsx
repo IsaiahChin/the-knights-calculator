@@ -304,7 +304,7 @@ export default function StatContainer({
       id="stats"
       className="w-full md:w-3/12 h-5/6 md:h-auto md:relative"
     >
-      <h1 id="statistics" className="w-full scroll-m-24">
+      <h1 id="statistics" className="w-full scroll-m-32">
         Statistics
       </h1>
       <Separator />
