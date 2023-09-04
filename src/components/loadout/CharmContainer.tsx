@@ -136,7 +136,7 @@ export default function CharmContainer({
         <h2 className={notches.active > notches.max ? 'text-[#e676cf]' : ''}>
           {notches.active > notches.max ? 'OVERCHARMED' : 'Equipped'}
         </h2>
-        <div className="flex flex-wrap py-4 items-center gap-4 gap-y-4 [&>*]:mr-[10px] relative">
+        <div className="flex flex-wrap py-4 items-center gap-2 gap-y-4 [&>*]:mr-[10px] relative">
           {notches.active > notches.max && (
             <Image
               src={CharmUIAssets.overcharmedBackboard}
@@ -210,7 +210,7 @@ export default function CharmContainer({
             <Image
               src={charm.image}
               alt={charm.name}
-              className={`max-w-[60px] w-auto ${
+              className={`max-w-[50px] md:max-w-[60px] w-auto ${
                 charm.isEquipped ? 'opacity-20 glow' : 'opacity-100'
               } ${
                 charm.name == 'Carefree Melody' && isGrimmchildEquipped
