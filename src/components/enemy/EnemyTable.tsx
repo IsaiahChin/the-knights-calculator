@@ -164,8 +164,10 @@ export default function EnemyTable() {
               <label
                 htmlFor={toggle.label}
                 className={`flex items-center align-middle px-2 py-1 cursor-pointer rounded-lg border-2 border-zinc-100/50 ${
-                  toggle.isToggled ? 'opacity-100 border-blue-50' : 'opacity-70'
-                } hover:opacity-100 hover:border-blue-50`}
+                  toggle.isToggled
+                    ? 'opacity-100 border-zinc-50/100'
+                    : 'opacity-70'
+                } hover:opacity-100 hover:border-zinc-50`}
               >
                 <input
                   name="searchbar"

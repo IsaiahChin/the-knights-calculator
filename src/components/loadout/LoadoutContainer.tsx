@@ -139,7 +139,7 @@ export default function LoadoutContainer({
           <button
             key={button.id}
             type="button"
-            className={`flex gap-2 items-center rounded-lg lg:rounded-t-lg lg:rounded-b-none border-2 border-zinc-100/50 lg:border-b-0 px-2 py-1 hover:opacity-100 hover:border-blue-50 ${
+            className={`flex gap-2 items-center rounded-lg lg:rounded-t-lg lg:rounded-b-none border-2 border-zinc-100/50 lg:border-b-0 px-2 py-1 hover:opacity-100 hover:border-zinc-50/100 ${
               button.id == tabIndex
                 ? 'border-zinc-100/80 opacity-100'
                 : 'opacity-60'
