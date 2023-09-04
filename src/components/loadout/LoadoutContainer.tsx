@@ -130,46 +130,37 @@ export default function LoadoutContainer({
   }
 
   return (
-    <section className="w-full md:w-5/12 h-3/12 md:h-auto">
+    <section className="w-full md:w-5/12 h-5/6 md:h-auto">
       <h1 id="loadout" className="w-full scroll-m-24">
         Loadout
       </h1>
-      <Separator />
-      <nav
-        className="flex flex-wrap justify-center gap-4"
-        aria-label="Loadout Menu"
-      >
+      <nav className="flex flex-wrap gap-2 mt-4" aria-label="Loadout Menu">
         {loadoutButtons.map((button) => (
           <button
             key={button.id}
             type="button"
-            className="flex gap-2 items-center group"
+            className={`flex gap-2 items-center rounded-lg lg:rounded-t-lg lg:rounded-b-none border-2 border-zinc-100/50 lg:border-b-0 px-2 py-1 hover:opacity-100 hover:border-blue-50 ${
+              button.id == tabIndex
+                ? 'border-zinc-100/80 opacity-100'
+                : 'opacity-60'
+            }`}
             onClick={() => handleTabChange(button.id)}
           >
             <Image
               src={button.icon}
               alt={button.name}
-              className="max-w-[40px]"
+              className="max-w-[35px] md:max-w-[40px]"
             />
-            <span
-              className={`decoration-2 underline-offset-[6px] ${
-                button.id == tabIndex ? 'underline' : ''
-              } group-hover:underline`}
-            >
-              {button.name}
-            </span>
+            <span>{button.name}</span>
           </button>
         ))}
       </nav>
-      <Separator />
+      <Separator className="lg:mt-0" />
       <section className={`${tabIndex == 0 ? 'contents' : 'hidden'}`}>
         {charmContainer}
       </section>
       <section className={`${tabIndex == 1 ? 'contents' : 'hidden'}`}>
-        <div
-          id="spell-container"
-          className="flex flex-col justify-between gap-4"
-        >
+        <div id="spell-container" className="flex flex-wrap gap-8">
           <SpellContainer
             title={currentFireball}
             spells={fireball}
