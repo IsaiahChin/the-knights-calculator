@@ -43,7 +43,7 @@ export default function RootLayout({
         <base
           href={`${
             process.env.NODE_ENV == 'production'
-              ? 'https://isaiahchin.github.io/the-knights-calculator/'
+              ? '/the-knights-calculator/'
               : '/'
           }`}
         />
