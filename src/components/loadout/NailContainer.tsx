@@ -35,7 +35,7 @@ export default function NailContainer({
 
   return (
     <>
-      <h2 className="w-max mx-auto pb-4">{currentNail}</h2>
+      <h2 className="w-max pb-4">{currentNail}</h2>
       <div
         id="nail-container"
         className="flex flex-wrap gap-x-16 px-12 justify-evenly"
