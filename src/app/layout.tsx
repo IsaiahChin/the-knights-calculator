@@ -40,6 +40,13 @@ export default function RootLayout({
     <html lang="en" className="bg-zinc-950 text-zinc-100">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <base
+          href={`${
+            process.env.NODE_ENV == 'production'
+              ? 'https://isaiahchin.github.io/the-knights-calculator/'
+              : '/'
+          }`}
+        />
       </head>
       <body
         className={`${robotoSlab.className} overflow-x-hidden relative m-0 min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
