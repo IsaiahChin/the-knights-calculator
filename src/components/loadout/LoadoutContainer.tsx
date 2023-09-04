@@ -18,7 +18,7 @@ export default function LoadoutContainer({
   updateSpell,
   charmContainer,
 }: {
-  updateNail?: (newName: string, newDamage: number) => void;
+  updateNail?: (newId: number, newName: string, newDamage: number) => void;
   updateSpell?: (
     name: string,
     spellAlias: String,

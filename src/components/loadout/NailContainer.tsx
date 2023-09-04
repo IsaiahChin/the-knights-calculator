@@ -9,7 +9,7 @@ import NAILS from '@/constants/nails';
 export default function NailContainer({
   updateNail,
 }: {
-  updateNail?: (newName: string, newDamage: number) => void;
+  updateNail?: (newId: number, newName: string, newDamage: number) => void;
 }) {
   const [nails, setNails] = useState(
     NAILS.map((nail, index) => ({

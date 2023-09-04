@@ -19,6 +19,7 @@ export default function Home() {
       min: knight.health.min,
     },
     nail: {
+      id: 0,
       name: nails[0].name,
       damage: nails[0].damage,
       swingRate: knight.nail.rate,
@@ -62,11 +63,12 @@ export default function Home() {
    * Updates `nail.name` and `nail.damage` from loadout state
    * @param newDamage
    */
-  function updateNail(newName: string, newDamage: number) {
+  function updateNail(newId: number, newName: string, newDamage: number) {
     setLoadout({
       ...loadout,
       nail: {
         ...loadout.nail,
+        id: newId,
         name: newName,
         damage: newDamage,
       },
@@ -126,7 +128,7 @@ export default function Home() {
 
   return (
     <div className="[&>section]:max-w-2xl w-auto flex flex-col md:flex-row gap-y-10 md:gap-4 pb-8 justify-center">
-      <EnemyContainer />
+      <EnemyContainer loadout={loadout} />
       <StatContainer loadout={loadout} equippedCharms={equippedCharms} />
       <LoadoutContainer
         updateNail={updateNail}
