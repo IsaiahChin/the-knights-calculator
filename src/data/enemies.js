@@ -69,7 +69,7 @@ const enemies = [
     image: EnemyAssets.battleObble,
   },
   {
-    name: 'belfy',
+    name: 'belfly',
     health: { total: 5 },
     origin: CONTENTPACKS.MAIN,
     type: ENEMYTYPES.STANDARD,
@@ -312,6 +312,14 @@ const enemies = [
     type: ENEMYTYPES.STANDARD,
     icon: EnemyIcons.gluttonousHusk,
     image: EnemyAssets.gluttonousHusk,
+  },
+  {
+    name: 'gorgeous husk',
+    health: { total: 220 },
+    origin: CONTENTPACKS.MAIN,
+    type: ENEMYTYPES.STANDARD,
+    icon: EnemyIcons.gorgeousHusk,
+    image: EnemyAssets.gorgeousHusk,
   },
   {
     name: 'great hopper',
@@ -1020,8 +1028,7 @@ const enemies = [
     image: EnemyAssets.broodingMawlek,
   },
   {
-    name: 'collector',
-    alias: 'the collector',
+    name: 'the collector',
     health: {
       total: 750,
       nail: {
@@ -1194,8 +1201,7 @@ const enemies = [
     image: EnemyAssets.greyPrinceZote,
   },
   {
-    name: 'grimm',
-    alias: 'troupe master grimm',
+    name: 'troupe master grimm',
     health: {
       total: 800,
       nail: {
@@ -1237,8 +1243,7 @@ const enemies = [
     image: EnemyAssets.hiveKnight,
   },
   {
-    name: 'hollow knight',
-    alias: 'the hollow knight',
+    name: 'the hollow knight',
     health: {
       total: 1250,
       phase: {
@@ -1367,7 +1372,6 @@ const enemies = [
   },
   {
     name: 'oro & mato',
-    alias: 'brothers oro & mato',
     health: {
       total: 2100,
       phase: {
@@ -1389,8 +1393,7 @@ const enemies = [
     image: EnemyAssets.pureVessel,
   },
   {
-    name: 'radiance',
-    alias: 'the radiance',
+    name: 'the radiance',
     health: {
       total: 1700,
       phase: {
@@ -1406,8 +1409,7 @@ const enemies = [
     image: EnemyAssets.theRadiance,
   },
   {
-    name: 'sheo',
-    alias: 'paintmaster sheo',
+    name: 'paintmaster sheo',
     health: { total: 950 },
     origin: CONTENTPACKS.GODMASTER,
     type: ENEMYTYPES.BOSS,
@@ -1506,7 +1508,6 @@ const enemies = [
   },
   {
     name: 'zote',
-    alias: 'zote the mighty',
     health: {
       total: 200,
     },
