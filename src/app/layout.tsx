@@ -45,7 +45,7 @@ export default function RootLayout({
         className={`${robotoSlab.className} overflow-x-hidden relative m-0 min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
       >
         <Header />
-        <main className="flex flex-col md:contents w-full md:w-11/12 h-auto md:h-[11/12] px-4 md:p-0 mx-auto relative mb-4">
+        <main className="flex flex-col md:contents w-full md:w-11/12 h-auto md:h-5/6 px-4 md:p-0 mx-auto relative mb-4">
           {children}
         </main>
       </body>

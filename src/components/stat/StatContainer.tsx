@@ -293,6 +293,7 @@ export default function StatContainer({
         icon={icon}
         iconAlt={title}
         value={value.toFixed(0)}
+        valueSize="h3"
         subValue={subValue}
       />
     );
@@ -303,19 +304,18 @@ export default function StatContainer({
       id="stats"
       className="w-full md:w-3/12 h-5/6 md:h-auto md:relative"
     >
-      <h1 id="statistics" className="w-full scroll-m-24">
+      <h1 id="statistics" className="w-full scroll-m-32">
         Statistics
       </h1>
       <Separator />
-      <h2 className="pb-2">Nail</h2>
+      <h2 className="pb-4">{loadout.nail.name}</h2>
       <div className="flex flex-wrap gap-4">
         <StatBlock
           title="DPS"
           value={(stats.nailDamage / stats.swingSpeed).toFixed(2)}
-          valueSize="large"
         />
         <StatBlock
-          title={loadout.nail.name}
+          title="Base"
           value={stats.nailDamage.toFixed(0)}
           subValue="dmg"
         />
@@ -345,9 +345,10 @@ export default function StatContainer({
                       ).toFixed(2)
                     : (stats.nailDamage * nailart.damageMod).toFixed(2)
                 }
+                valueSize="h3"
                 subValue={`dmg ${
                   nailart.name == 'cyclone'
-                    ? ` (all ${nailart.hits?.max} hits)`
+                    ? ` (${nailart.hits?.max} hits)`
                     : ''
                 }`}
               />
@@ -356,29 +357,24 @@ export default function StatContainer({
         </div>
       </div>
       <Separator />
-      <h2 className="pb-2">Soul / Spells</h2>
+      <h2 className="pb-4">Soul / Spells</h2>
       <div className="flex flex-wrap gap-4">
-        <span className="flex flex-wrap flex-col md:flex-row gap-4">
-          <StatBlock
-            title="Max"
-            value={loadout.soul.max.toFixed(0)}
-            subValue="soul"
-            valueSize="large"
-          />
-          <StatBlock
-            title="Spell cost"
-            value={stats.spellCost.toFixed(0)}
-            subValue="soul"
-            valueSize="large"
-          />
-          <StatBlock
-            title="Regen"
-            value={stats.soulRegen.toFixed(0)}
-            subValue="soul"
-            valueSize="large"
-          />
-        </span>
-        <div className="w-full flex flex-row flex-wrap justify-between md:justify-normal gap-4">
+        <StatBlock
+          title="Max"
+          value={loadout.soul.max.toFixed(0)}
+          subValue="soul"
+        />
+        <StatBlock
+          title="Spell cost"
+          value={stats.spellCost.toFixed(0)}
+          subValue="soul"
+        />
+        <StatBlock
+          title="Regen"
+          value={stats.soulRegen.toFixed(0)}
+          subValue="soul"
+        />
+        <div className="w-full flex flex-row flex-wrap justify-normal md:justify-between gap-4">
           <div className="flex flex-col gap-y-4">
             {renderFireball()}
             {Object.values(
@@ -402,6 +398,7 @@ export default function StatContainer({
                         ? stats.diveDamage.toFixed(0)
                         : stats.wraithsDamage.toFixed(0)
                     }
+                    valueSize="h3"
                     subValue="dmg"
                   />
                 )
@@ -411,7 +408,6 @@ export default function StatContainer({
             {stats.minions.map((minion) => (
               <StatBlock
                 key={minion.name}
-                value={minion.value * minion.amount}
                 title={minion.name}
                 icon={
                   isCharmEquipped('Glowing Womb') &&
@@ -421,6 +417,8 @@ export default function StatContainer({
                     : minion.image
                 }
                 iconAlt={minion.name}
+                value={minion.value * minion.amount}
+                valueSize="h3"
                 subValue="dmg"
               />
             ))}

@@ -125,7 +125,7 @@ export default function Home() {
   }
 
   return (
-    <div className="[&>section]:max-w-3xl w-auto mx-auto flex flex-col md:flex-row gap-y-10 md:gap-4 pb-8 justify-center">
+    <div className="[&>section]:max-w-2xl w-auto flex flex-col md:flex-row gap-y-10 md:gap-4 pb-8 justify-center">
       <EnemyContainer />
       <StatContainer loadout={loadout} equippedCharms={equippedCharms} />
       <LoadoutContainer

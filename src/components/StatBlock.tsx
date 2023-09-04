@@ -14,7 +14,7 @@ const StatBlock: React.FC<Stats> = ({
   icon,
   iconAlt,
   value,
-  valueSize = 'medium',
+  valueSize,
   subValue,
 }) => {
   return (
@@ -27,24 +27,21 @@ const StatBlock: React.FC<Stats> = ({
         />
       )}
       <div>
-        <h4 className="w-max">{title}</h4>
-        {valueSize == 'large' && (
-          <h2 className="flex flex-nowrap items-baseline gap-1">
-            {value}
-            <span className="uppercase text-xs"> {subValue}</span>
-          </h2>
-        )}
-        {valueSize == 'medium' && (
+        <p className="w-max">{title}</p>
+        {valueSize == 'h3' ? (
           <h3 className="flex flex-nowrap items-baseline gap-1">
             {value}
-            <span className="uppercase text-xs"> {subValue}</span>
+            <span className="uppercase text-xs text-zinc-300 font-medium">
+              {subValue}
+            </span>
           </h3>
-        )}
-        {valueSize == 'small' && (
-          <p className="font-bold gap-1">
+        ) : (
+          <h2 className="flex flex-nowrap items-baseline gap-1">
             {value}
-            <span className="uppercase text-xs"> {subValue}</span>
-          </p>
+            <span className="uppercase text-xs text-zinc-300 font-medium">
+              {subValue}
+            </span>
+          </h2>
         )}
       </div>
     </span>

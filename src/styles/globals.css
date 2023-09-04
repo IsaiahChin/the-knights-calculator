@@ -9,7 +9,7 @@
   h4,
   h5,
   h6 {
-    @apply font-bold;
+    @apply font-medium;
   }
 
   h1 {
@@ -54,17 +54,4 @@ html {
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   color-scheme: dark;
-}
-
-.icon-mask {
-  clip-path: polygon(
-    25% 0,
-    75% 0,
-    100% 30%,
-    100% 70%,
-    80% 100%,
-    20% 100%,
-    0% 70%,
-    0% 30%
-  );
 }
