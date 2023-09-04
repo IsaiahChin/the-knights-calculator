@@ -14,10 +14,13 @@ export default function Header() {
     <header className="w-full mx-auto pl-4 pr-0 lg:px-8 py-4 flex items-start md:items-center justify-between z-50 sticky top-0 bg-zinc-950 border-b-2 border-zinc-100/70 md:border-b-0 mb-4 md:mb-0">
       <span>
         <h3 className="w-max py-2">
-          <a href="/" className="hidden md:contents">
+          <a href="/the-knights-calculator" className="hidden md:contents">
             The Knight&apos;s Calculator
           </a>
-          <a href="/" className="flex items-center gap-2 md:hidden">
+          <a
+            href="/the-knights-calculator"
+            className="flex items-center gap-2 md:hidden"
+          >
             <Image
               alt="The Knight's Calculator"
               src={knightIcon}
