@@ -1,17 +1,35 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
+import Image, { StaticImageData } from 'next/image';
 import Info from './Info';
 
-import Image from 'next/image';
 import knightIcon from '@/assets/ui/knight-icon.png';
+import MenuBackgrounds from '@/assets/menu-backgrounds';
 
 export default function Header() {
+  const [headerBackground, setHeaderBackground] = useState<StaticImageData>();
+
   const navLinks = [
     { id: 0, name: 'Enemies' },
     { id: 1, name: 'Statistics' },
     { id: 2, name: 'Loadout' },
   ];
 
+  // Set random header background image on startup
+  useEffect(() => {
+    let amountOfBackgrounds = Object.keys(MenuBackgrounds).length;
+    let randomIndex = Math.floor(Math.random() * amountOfBackgrounds);
+    setHeaderBackground(Object.values(MenuBackgrounds)[randomIndex]);
+  }, []);
+
   return (
-    <header className="w-full mx-auto pl-4 pr-0 lg:px-8 py-4 flex items-start md:items-center justify-between z-50 sticky top-0 bg-zinc-950 border-b-2 border-zinc-100/70 md:border-b-0 mb-4 md:mb-0">
+    <header
+      className="w-full mx-auto mb-4 md:mb-0 pl-4 pr-0 lg:px-8 py-4 flex items-start md:items-center justify-between sticky z-50 top-0
+      bg-zinc-950 bg-cover md:bg-contain bg-no-repeat bg-center md:bg-left-top box-border"
+      style={{ backgroundImage: `url(${headerBackground?.src})` }}
+    >
       <span>
         <h3 className="w-max py-2">
           <a href="/the-knights-calculator" className="hidden md:contents">
