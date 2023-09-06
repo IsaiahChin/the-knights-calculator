@@ -55,7 +55,7 @@ export default function Info() {
               <p></p>
             </span>
             <span>
-              <h3 className="w-max mt-4">Assumptions</h3>
+              <h3 className="w-max mt-6">Assumptions</h3>
               <ul className="list-disc px-8 py-2 leading-loose">
                 <li>
                   All values and calculations come from the{' '}
@@ -82,7 +82,7 @@ export default function Info() {
               </ul>
             </span>
             <span>
-              <h3 className="w-max mt-4">Disclaimers</h3>
+              <h3 className="w-max mt-6">Disclaimers</h3>
               <ul className="list-disc px-8 py-2 leading-loose">
                 <li>
                   This project is not affiliated with Hollow Knight or{' '}
