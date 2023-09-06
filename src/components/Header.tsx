@@ -27,7 +27,7 @@ export default function Header() {
   return (
     <header
       className="w-full mx-auto mb-4 md:mb-0 pl-4 pr-0 lg:px-8 py-4 flex items-start md:items-center justify-between sticky z-50 top-0
-      bg-zinc-950 bg-cover md:bg-contain bg-no-repeat bg-center md:bg-left-top box-border"
+      bg-zinc-950 bg-cover md:bg-contain bg-no-repeat bg-center box-border md:bg-[top_0rem_left_-1.5rem]"
       style={{ backgroundImage: `url(${headerBackground?.src})` }}
     >
       <span>
