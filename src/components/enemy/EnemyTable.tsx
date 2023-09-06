@@ -11,7 +11,7 @@ import arrow from '@/assets/ui/arrow.png';
 import enemies from '@/data/enemies';
 import ENEMYTYPES from '@/constants/enemy';
 
-export default function EnemyTable() {
+export default function EnemyTable({ loadout }: { loadout: any }) {
   const [enemyRows, setEnemyRows] = useState(enemies);
 
   const TABLE_HEAD = ['Name', 'Health'];
@@ -60,15 +60,24 @@ export default function EnemyTable() {
     setMostRecentSortTerm(sortValue);
 
     setEnemyRows(
-      enemyRows.sort((a, b) => {
+      enemyRows.sort((a: any, b: any) => {
         if (sortValue === 'Name') {
           return (
             (sortBy[0].isAscending ? -1 : 1) * a.name.localeCompare(b.name)
           );
         } else {
-          return (
-            (sortBy[1].isAscending ? -1 : 1) * (a.health.total - b.health.total)
-          );
+          let aHealth = a.health.total;
+          let bHealth = b.health.total;
+
+          if (a.health?.nail != undefined) {
+            aHealth = a.health.nail?.[loadout.nail.id];
+          }
+
+          if (b.health?.nail != undefined) {
+            bHealth = b.health.nail?.[loadout.nail.id];
+          }
+
+          return (sortBy[1].isAscending ? -1 : 1) * (aHealth - bHealth);
         }
       })
     );
@@ -134,7 +143,18 @@ export default function EnemyTable() {
         if (sortTermIndex === 0) {
           return sortOrder * a.name.localeCompare(b.name);
         } else {
-          return sortOrder * (a.health.total - b.health.total);
+          let aHealth = a.health.total;
+          let bHealth = b.health.total;
+
+          if (a.health?.nail != undefined) {
+            aHealth = a.health.nail?.[loadout.nail.id];
+          }
+
+          if (b.health?.nail != undefined) {
+            bHealth = b.health.nail?.[loadout.nail.id];
+          }
+
+          return sortOrder * (aHealth - bHealth);
         }
       });
 
@@ -144,7 +164,7 @@ export default function EnemyTable() {
     const updatedEnemyRows = applyFiltersAndSort(enemies);
 
     setEnemyRows(updatedEnemyRows);
-  }, [activeFilters, searchTerm, mostRecentSortTerm]);
+  }, [activeFilters, searchTerm, mostRecentSortTerm, loadout]);
 
   useEffect(() => {
     // Scroll to top of table
@@ -167,7 +187,7 @@ export default function EnemyTable() {
                   toggle.isToggled
                     ? 'opacity-100 border-zinc-50/100'
                     : 'opacity-70'
-                } hover:opacity-100 hover:border-zinc-50`}
+                } hover:opacity-100 hover:border-zinc-50 transition-[border-color]`}
               >
                 <input
                   name="searchbar"
@@ -245,7 +265,7 @@ export default function EnemyTable() {
           </thead>
           <tbody>
             {enemyRows.map((enemy) => {
-              return generateTableRow(enemy);
+              return generateTableRow(enemy, loadout);
             })}
           </tbody>
         </table>
@@ -254,7 +274,7 @@ export default function EnemyTable() {
   );
 }
 
-function generateTableRow(enemy: any) {
+function generateTableRow(enemy: any, loadout: any) {
   return (
     <tr key={enemy.name}>
       <td className="px-2 p-4 border-b-2 border-zinc-100/50">
@@ -262,7 +282,7 @@ function generateTableRow(enemy: any) {
           <Image
             src={enemy.icon}
             alt={enemy.name}
-            className="max-w-[45px] lg:max-w-[60px]"
+            className="max-w-[40px] lg:max-w-[60px]"
           />
           <div className="flex flex-col">
             <span className=" text-zinc-100">{toTitleCase(enemy.name)}</span>
@@ -271,7 +291,11 @@ function generateTableRow(enemy: any) {
       </td>
       <td className="px-0 p-4 border-b-2 border-zinc-100/50">
         <div className="flex flex-col text-right pr-4">
-          <span className="font-bold text-xl">{enemy.health.total}</span>
+          <span className="font-bold text-xl">
+            {enemy.health?.nail
+              ? enemy.health.nail?.[loadout.nail.id]
+              : enemy.health.total}
+          </span>
         </div>
       </td>
     </tr>

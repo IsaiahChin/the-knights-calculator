@@ -31,14 +31,14 @@ const StatBlock: React.FC<Stats> = ({
         {valueSize == 'h3' ? (
           <h3 className="flex flex-nowrap items-baseline gap-1">
             {value}
-            <span className="uppercase text-xs text-zinc-300 font-medium">
+            <span className="uppercase text-xs text-zinc-300/80 font-medium">
               {subValue}
             </span>
           </h3>
         ) : (
           <h2 className="flex flex-nowrap items-baseline gap-1">
             {value}
-            <span className="uppercase text-xs text-zinc-300 font-medium">
+            <span className="uppercase text-xs text-zinc-300/80 font-medium">
               {subValue}
             </span>
           </h2>

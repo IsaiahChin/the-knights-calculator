@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Image, { StaticImageData } from 'next/image';
 
+import Image, { StaticImageData } from 'next/image';
 import Separator from '../Separator';
 
 import CharmUIAssets from '@/assets/ui/loadout/charm-ui/';
@@ -153,6 +153,7 @@ export default function CharmContainer({
             <button
               key={index}
               type="button"
+              className="relative w-auto h-auto group"
               onClick={() => {
                 unequipCharm(charm.name);
                 toggleCharmActive(charm.name);
@@ -162,8 +163,9 @@ export default function CharmContainer({
               <Image
                 src={charm.image}
                 alt={charm.name}
-                className="relative max-w-[47px] sm:max-w-[65px] z-20"
+                className="relative max-w-[47px] sm:max-w-[65px] z-20 group-hover:glow"
               />
+              {generateCharmTooltip(charm)}
             </button>
           ))}
           {notches.active < notches.max && (
@@ -188,6 +190,7 @@ export default function CharmContainer({
           <button
             key={charmIndex}
             type="button"
+            className="relative w-auto h-auto group"
             onClick={() => {
               if (charm.isEquipped) {
                 unequipCharm(charm.name);
@@ -210,7 +213,7 @@ export default function CharmContainer({
             <Image
               src={charm.image}
               alt={charm.name}
-              className={`max-w-[50px] md:max-w-[60px] w-auto ${
+              className={`max-w-[50px] md:max-w-[60px] w-auto hover:glow ${
                 charm.isEquipped ? 'opacity-20 glow' : 'opacity-100'
               } ${
                 charm.name == 'Carefree Melody' && isGrimmchildEquipped
@@ -222,9 +225,29 @@ export default function CharmContainer({
                   : ''
               }`}
             />
+            {generateCharmTooltip(charm)}
           </button>
         ))}
       </div>
     </>
+  );
+}
+
+function generateCharmTooltip(charm: any) {
+  return (
+    <span className="scale-0 group-hover:scale-100 flex flex-col items-center justify-center absolute z-20 bg-zinc-950 min-w-fit min-h-fit px-4 py-2 max-md:bottom-16 max-md:-left-12 md:-top-2 md:right-20 border-2 border-zinc-50/50 rounded-md transition-transform">
+      <p className="md:w-max">{charm.name}</p>
+      <span className="flex items-center">
+        <code>Cost:</code>
+        {Array.from({ length: charm.cost }, (_, index) => (
+          <Image
+            key={index}
+            src={CharmUIAssets.notchLit}
+            alt={'Lit Charm Notch'}
+            className="max-w-[30px] md:max-w-[35px]"
+          />
+        ))}
+      </span>
+    </span>
   );
 }

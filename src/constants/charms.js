@@ -284,6 +284,7 @@ const charms = [
     origin: CONTENTPACKS.THE_GRIMM_TROUPE,
     image: CharmIcons.weaversong,
     effect: {
+      soul: { regen: 3 },
       minion: {
         amount: 3,
         value: 3,
