@@ -42,7 +42,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
-        className={`${robotoSlab.className} overflow-x-hidden relative m-0 min-h-screen bg-zinc-950 bg-cover bg-top bg-no-repeat bg-fixed`}
+        className={`${robotoSlab.className} overflow-x-hidden relative m-0 min-h-screen bg-zinc-950`}
       >
         <Header />
         <main className="flex flex-col md:contents w-full md:w-11/12 h-auto md:h-5/6 px-4 md:p-0 mx-auto relative mb-4">
