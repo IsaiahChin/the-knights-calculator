@@ -187,7 +187,7 @@ export default function EnemyTable({ loadout }: { loadout: any }) {
                   toggle.isToggled
                     ? 'opacity-100 border-zinc-50/100'
                     : 'opacity-70'
-                } hover:opacity-100 hover:border-zinc-50`}
+                } hover:opacity-100 hover:border-zinc-50 transition-[border-color]`}
               >
                 <input
                   name="searchbar"
@@ -282,7 +282,7 @@ function generateTableRow(enemy: any, loadout: any) {
           <Image
             src={enemy.icon}
             alt={enemy.name}
-            className="max-w-[45px] lg:max-w-[60px]"
+            className="max-w-[40px] lg:max-w-[60px]"
           />
           <div className="flex flex-col">
             <span className=" text-zinc-100">{toTitleCase(enemy.name)}</span>

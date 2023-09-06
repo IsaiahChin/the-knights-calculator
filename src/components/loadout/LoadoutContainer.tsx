@@ -143,7 +143,7 @@ export default function LoadoutContainer({
               button.id == tabIndex
                 ? 'border-zinc-100/80 opacity-100'
                 : 'opacity-60'
-            }`}
+            } transition-[border-color]`}
             onClick={() => handleTabChange(button.id)}
           >
             <Image
