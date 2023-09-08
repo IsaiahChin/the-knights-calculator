@@ -164,7 +164,7 @@ export default function EnemyTable({ loadout }: { loadout: any }) {
     const updatedEnemyRows = applyFiltersAndSort(enemies);
 
     setEnemyRows(updatedEnemyRows);
-  }, [activeFilters, searchTerm, mostRecentSortTerm, loadout]);
+  }, [activeFilters, searchTerm, sortBy, mostRecentSortTerm, loadout]);
 
   useEffect(() => {
     // Scroll to top of table
