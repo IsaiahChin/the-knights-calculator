@@ -72,7 +72,7 @@ export default function Info() {
                   completely
                 </li>
                 <li>
-                  Enemies with multiple 'stages' show the total health value
+                  Enemies with multiple &apos;stages&apos; show the total health value
                 </li>
               </ul>
               <h4 className="px-2 mt-2">Charms</h4>
