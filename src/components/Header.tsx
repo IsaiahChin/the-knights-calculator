@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 import Info from './Info';
 
 import knightIcon from '@/assets/ui/knight-icon.png';
@@ -49,7 +50,7 @@ export default function Header() {
         </h3>
         <nav aria-label="Mobile navigation" className="flex md:hidden gap-6">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.id}
               href={`#${
                 link.name[0].toLowerCase() +
@@ -58,7 +59,7 @@ export default function Header() {
               className="flex gap-2 items-center group"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </span>
