@@ -27,4 +27,4 @@
 This project is not affiliated with Hollow Knight or [Team Cherry](https://www.teamcherry.com.au/). All art assets used are owned by Team Cherry.
 
 ## License
-This project it not offering a license. For more information [click here](https://choosealicense.com/no-permission/#for-users).
+This project is not offering a license. For more information [click here](https://choosealicense.com/no-permission/#for-users).
