@@ -24,6 +24,10 @@
     @apply text-xl sm:text-2xl;
   }
 
+  h4 {
+    @apply text-lg sm:text-xl;
+  }
+
   img {
     @apply w-auto h-fit aspect-auto object-contain select-none;
   }
