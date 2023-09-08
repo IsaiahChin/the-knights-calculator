@@ -233,7 +233,7 @@ export default function EnemyTable({ loadout }: { loadout: any }) {
         id="table-container"
         className="max-h-[40vh] md:max-h-[70vh] overflow-y-auto flex flex-wrap items-center gap-4"
       >
-        <table className="w-full table-auto text-left mr-2">
+        <table className="w-full table-auto text-left md:mr-2">
           <thead className="sticky top-0 bg-zinc-950">
             <tr>
               {TABLE_HEAD.map((value, index) => {
