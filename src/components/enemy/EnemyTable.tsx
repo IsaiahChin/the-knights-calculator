@@ -214,6 +214,7 @@ export default function EnemyTable({ loadout }: { loadout: any }) {
           <SearchIcon />
         </span>
         <input
+          id="search-input"
           type="text"
           placeholder="Enemy"
           className="w-full h-full pl-9 p-2 bg-inherit outline outline-2 outline-zinc-300/50 focus:outline-zinc-300 rounded-md"
@@ -232,7 +233,7 @@ export default function EnemyTable({ loadout }: { loadout: any }) {
         id="table-container"
         className="max-h-[40vh] md:max-h-[70vh] overflow-y-auto flex flex-wrap items-center gap-4"
       >
-        <table className="w-full table-auto text-left mr-2">
+        <table className="w-full table-auto text-left md:mr-2">
           <thead className="sticky top-0 bg-zinc-950">
             <tr>
               {TABLE_HEAD.map((value, index) => {
