@@ -70,7 +70,7 @@ const charms = [
   },
   {
     name: 'Grubsong',
-    cost: 2,
+    cost: 1,
     origin: CONTENTPACKS.MAIN,
     image: CharmIcons.grubsong,
   },
