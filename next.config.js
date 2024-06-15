@@ -2,7 +2,7 @@
 const nextConfig = {
   experimental: {},
   images: {},
-  output: 'export',
+  // output: 'export',
 };
 
 module.exports = nextConfig;
