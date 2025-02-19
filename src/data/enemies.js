@@ -523,6 +523,9 @@ const enemies = [
       nail: {
         0: 25,
         1: 28,
+        2: 28,
+        3: 28,
+        4: 28,
       },
     },
     origin: CONTENTPACKS.MAIN,
