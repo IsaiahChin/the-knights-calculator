@@ -5,6 +5,23 @@ import ENEMYTYPES from '@/constants/enemy';
 
 const enemies = [
   {
+    name: 'absolute radiance',
+    health: {
+      total: 2181,
+      phase: {
+        1: 400,
+        2: 450,
+        3: 300,
+        4: 750,
+        5: 281,
+      },
+    },
+    origin: CONTENTPACKS.GODMASTER,
+    type: ENEMYTYPES.BOSS,
+    icon: EnemyIcons.theRadiance,
+    image: EnemyAssets.theRadiance,
+  },
+  {
     name: 'aluba',
     health: { total: 1 },
     origin: CONTENTPACKS.MAIN,
@@ -210,7 +227,23 @@ const enemies = [
     icon: EnemyIcons.elderBaldur,
     image: EnemyAssets.elderBaldur,
   },
-
+  {
+    name: 'enraged guardian',
+    health: {
+      total: 450,
+      nail: {
+        0: 450,
+        1: 450,
+        2: 500,
+        3: 550,
+        4: 600,
+      },
+    },
+    origin: CONTENTPACKS.MAIN,
+    type: ENEMYTYPES.STANDARD,
+    icon: EnemyIcons.crystalGuardian,
+    image: EnemyAssets.crystalGuardian,
+  },
   {
     name: 'entombed husk',
     health: { total: 45 },
@@ -622,6 +655,14 @@ const enemies = [
     image: EnemyAssets.loodle,
   },
   {
+    name: 'lost kin',
+    health: { total: 1200 },
+    origin: CONTENTPACKS.MAIN,
+    type: [ENEMYTYPES.BOSS, ENEMYTYPES.DREAM],
+    icon: EnemyIcons.brokenVessel,
+    image: EnemyAssets.brokenVessel,
+  },
+  {
     name: 'maggot',
     health: { total: 1 },
     origin: CONTENTPACKS.MAIN,
@@ -863,6 +904,20 @@ const enemies = [
     image: EnemyAssets.sibling,
   },
   {
+    name: 'sisters of battle',
+    health: {
+      total: 2750,
+      phase: {
+        1: 500,
+        2: 2250,
+      },
+    },
+    origin: CONTENTPACKS.GODMASTER,
+    type: ENEMYTYPES.BOSS,
+    icon: EnemyIcons.mantisLords,
+    image: EnemyAssets.mantisLords,
+  },
+  {
     name: 'slobbering husk',
     health: { total: 30 },
     origin: CONTENTPACKS.MAIN,
@@ -999,6 +1054,14 @@ const enemies = [
     image: EnemyAssets.wingedFool,
   },
   {
+    name: 'winged nosk',
+    health: { total: 750 },
+    origin: CONTENTPACKS.GODMASTER,
+    type: ENEMYTYPES.BOSS,
+    icon: EnemyIcons.wingedNosk,
+    image: EnemyAssets.wingedNosk,
+  },
+  {
     name: 'winged sentry',
     health: { total: 25 },
     origin: CONTENTPACKS.MAIN,
@@ -1029,6 +1092,20 @@ const enemies = [
     type: [ENEMYTYPES.BOSS, ENEMYTYPES.MINI_BOSS],
     icon: EnemyIcons.broodingMawlek,
     image: EnemyAssets.broodingMawlek,
+  },
+    {
+    name: 'brothers oro & mato',
+    health: {
+      total: 2100,
+      phase: {
+        1: 500,
+        2: 1600,
+      },
+    },
+    origin: CONTENTPACKS.GODMASTER,
+    type: ENEMYTYPES.BOSS,
+    icon: EnemyIcons.brothersOroMato,
+    image: EnemyAssets.brothersOroMato,
   },
   {
     name: 'the collector',
@@ -1088,6 +1165,22 @@ const enemies = [
     type: [ENEMYTYPES.BOSS, ENEMYTYPES.DREAM],
     icon: EnemyIcons.elderHu,
     image: EnemyAssets.elderHu,
+  },
+  {
+    name: 'failed champion',
+    health: {
+      total: 1260,
+      phase: {
+        1: 360 + 60,
+        2: 360 + 40,
+        3: 360 + 40,
+        4: 40,
+      },
+    },
+    origin: CONTENTPACKS.MAIN,
+    type: [ENEMYTYPES.BOSS, ENEMYTYPES.DREAM],
+    icon: EnemyIcons.falseKnight,
+    image: EnemyAssets.falseKnight,
   },
   {
     name: 'false knight',
@@ -1374,20 +1467,6 @@ const enemies = [
     image: EnemyAssets.oblobble,
   },
   {
-    name: 'oro & mato',
-    health: {
-      total: 2100,
-      phase: {
-        1: 500,
-        2: 1600,
-      },
-    },
-    origin: CONTENTPACKS.GODMASTER,
-    type: ENEMYTYPES.BOSS,
-    icon: EnemyIcons.brothersOroMato,
-    image: EnemyAssets.brothersOroMato,
-  },
-  {
     name: 'pure vessel',
     health: { total: 1600 },
     origin: CONTENTPACKS.GODMASTER,
@@ -1430,6 +1509,20 @@ const enemies = [
     },
     origin: CONTENTPACKS.MAIN,
     type: ENEMYTYPES.BOSS,
+    icon: EnemyIcons.soulMaster,
+    image: EnemyAssets.soulMaster,
+  },
+  {
+    name: 'soul tyrant',
+    health: {
+      total: 1250,
+      phase: {
+        1: 900,
+        2: 350,
+      },
+    },
+    origin: CONTENTPACKS.MAIN,
+    type: [ENEMYTYPES.BOSS, ENEMYTYPES.DREAM],
     icon: EnemyIcons.soulMaster,
     image: EnemyAssets.soulMaster,
   },

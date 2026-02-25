@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { Roboto_Slab } from 'next/font/google';
 
 import Header from '@/components/Header';
@@ -28,7 +28,11 @@ export const metadata: Metadata = {
     title: `The Knight's Calculator`,
     description: 'A Hollow Knight damage analysis tool',
   },
-  viewport: 'width=device-width, initial-scale=1',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({

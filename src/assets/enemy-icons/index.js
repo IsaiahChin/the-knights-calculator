@@ -152,6 +152,7 @@ import wanderingHusk from './wandering-husk.png';
 import watcherKnight from './watcher-knight.png';
 import whiteDefender from './white-defender.png';
 import wingedFool from './winged-fool.png';
+import wingedNosk from './winged-nosk.png'
 import wingedSentry from './winged-sentry.png';
 import wingedZoteling from './winged-zoteling.png';
 import wingmould from './wingmould.png';
@@ -313,6 +314,7 @@ const EnemyIcons = {
   watcherKnight,
   whiteDefender,
   wingedFool,
+  wingedNosk,
   wingedSentry,
   wingedZoteling,
   wingmould,

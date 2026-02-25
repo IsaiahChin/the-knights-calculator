@@ -7,7 +7,7 @@ import NailContainer from './NailContainer';
 import SpellContainer from './SpellContainer';
 import Separator from '../Separator';
 
-import nailIcon from '@/assets/ui/nail-icon.png';
+import paleOre from '@/assets/ui/pale-ore.png';
 import soulOrb from '@/assets/ui/soul-orb.png';
 import charmNotch from '@/assets/ui/charm-notch.png';
 
@@ -36,7 +36,7 @@ export default function LoadoutContainer({
   const loadoutButtons = [
     { id: 0, name: 'Charms', icon: charmNotch },
     { id: 1, name: 'Spells', icon: soulOrb },
-    { id: 2, name: 'Nails', icon: nailIcon },
+    { id: 2, name: 'Nails', icon: paleOre },
   ];
 
   const [fireball, setFireball] = useState([
